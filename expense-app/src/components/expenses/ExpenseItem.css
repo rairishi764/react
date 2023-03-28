@@ -47,6 +47,7 @@
   
     .expense-item__description h2 {
       font-size: 1.25rem;
+      text-align: left;
     }
   
     .expense-item__price {

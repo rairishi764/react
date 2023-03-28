@@ -1,7 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
-
-import Expenses from "./components/Expenses";
+import Card from "./components/ui/Card";
+import Expenses from "./components/expenses/Expenses";
 function App() {
   const expenses = [
     {
@@ -27,7 +27,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <Card className="expense">
         <Expenses items={expenses}></Expenses>
+        </Card>
       </header>
     </div>
   );
