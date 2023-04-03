@@ -1,6 +1,8 @@
 # react
 sudo npx create-react-app gym-log
 
+sudo npm install --save @react-native-google-signin/google-signin
+
 
 # JS
 let & const
@@ -215,3 +217,11 @@ We get the same result as above but we save some code.
 By destructuring, we simply pull out the name property and
 store it in a variable/ argument named name which we then
 can use in the function body.
+
+
+
+# reactive Native
+sudo npm install  expo-cli  
+sudo npx create-expo-app workout
+sudo npm start
+$ sudo chown -R username .
