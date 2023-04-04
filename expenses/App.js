@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { StyleSheet, Text, View, Button, TextInput,ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput,ScrollView,
+FlatList } from 'react-native';
 
 export default function App() {
   const [enteredGoalText, setEnteredGoalText] = useState('');
@@ -28,15 +29,17 @@ export default function App() {
       </View>
       
       <View style={styles.goalsContainer}>
-      <ScrollView alwaysBounceVertical={false}>
+      <FlatList data={courseGoals} renderItem={itemData =>{
+        return(
+          <View style={styles.goalItem}>
+               <Text style={styles.goalText}>{itemData.item}</Text>
+          </View>
+      )
+      }} alwaysBounceVertical={false}>
         <View>
-        {courseGoals.map((goal)=> 
-            <View key={goal} style={styles.goalItem}>
-                 <Text style={styles.goalText}>{goal}</Text>
-            </View>
-        )}
+        
         </View>
-        </ScrollView>
+        </FlatList>
       </View>
       
     </View>
