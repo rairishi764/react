@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 export default function Menu({ navigation }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -21,14 +22,20 @@ export default function Menu({ navigation }) {
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.menuButton} onPress={handleMenuPress}>
-        <Text style={styles.menuButtonText}>{menuOpen ? 'Close' : 'Menu'}</Text>
+        {menuOpen ? (
+          <Icon name="close-outline" size={24} color="#fff" />
+        ) : (
+          <Icon name="menu-outline" size={24} color="#fff" />
+        )}
       </TouchableOpacity>
       {menuOpen && (
         <View style={styles.menu}>
           <TouchableOpacity style={styles.menuItem} onPress={handleLogPress}>
+            <Icon name="add-outline" size={20} color="#007AFF" />
             <Text style={styles.menuItemText}>Log a Workout</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.menuItem} onPress={handleHistoryPress}>
+            <Icon name="time-outline" size={20} color="#007AFF" />
             <Text style={styles.menuItemText}>Workout History</Text>
           </TouchableOpacity>
         </View>
@@ -49,11 +56,6 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 5,
   },
-  menuButtonText: {
-    color: '#fff',
-    fontWeight: 'bold',
-    fontSize: 18,
-  },
   menu: {
     backgroundColor: '#fff',
     padding: 10,
@@ -63,11 +65,14 @@ const styles = StyleSheet.create({
     borderColor: '#ccc',
   },
   menuItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
     paddingVertical: 5,
     borderBottomWidth: 1,
     borderBottomColor: '#ccc',
   },
   menuItemText: {
     fontSize: 16,
+    marginLeft: 10,
   },
 });

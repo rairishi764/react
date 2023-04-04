@@ -6,7 +6,6 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import DropDownPicker from 'react-native-dropdown-picker';
 import AddWorkout from './screens/workout/AddWorkout';
 import Header from './components/header';
 import Menu from './components/Menu';
@@ -16,8 +15,8 @@ export default function App() {
 
     <View styles={styles.container}>
       <Header></Header>
-      <AddWorkout></AddWorkout>
       <Menu></Menu>
+      <AddWorkout></AddWorkout>  
     </View>
   );
 }

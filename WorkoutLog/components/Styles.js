@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 20,
     fontWeight: 'bold',
+    marginTop:20
   },
   menuIcon: {
     marginLeft: 20,
@@ -32,7 +33,7 @@ const styles = StyleSheet.create({
     zIndex: 1,
   },
   menuHeader: {
-    height: 60,
+    height: 90,
     width: '100%',
     backgroundColor: '#007AFF',
     alignItems: 'center',
