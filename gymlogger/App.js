@@ -13,6 +13,7 @@ import SambaShoe from "./assets/SambaShoe.svg";
 import Cardio from "./assets/cardio.svg";
 import Weights from "./assets/weights.svg";
 
+
 const Stack = createNativeStackNavigator();
 
 const App = () =>{
@@ -27,7 +28,7 @@ const App = () =>{
   )
 }
 
-const Home =() => {
+const Home =({navigation}) => {
   return(
     <SafeAreaView
     style={{
@@ -40,7 +41,7 @@ const Home =() => {
 
       <View style={{padding:50}}>
         <TouchableOpacity 
-          onPress={() => navigation.navigate('Home')}
+          onPress={() => navigation.navigate('Main')}
             style={{
               backgroundColor:'#3EB489',
               padding:20,
@@ -57,7 +58,7 @@ const Home =() => {
 
         <View style={{padding:50}}>
         <TouchableOpacity 
-          onPress={() => navigation.navigate('Home')}
+          onPress={() => navigation.navigate('Main')}
             style={{
               backgroundColor:'#3EB489',
               padding:20,
@@ -71,7 +72,7 @@ const Home =() => {
           <Text style={{fontWeight:'bold', fontSize:18,color:"#fff"}}>Weights</Text>
         </TouchableOpacity>
         </View>
-        
+
     </SafeAreaView>
   )
 }
@@ -90,9 +91,8 @@ const Main = ({navigation}) => {
         <Text style={{
           fontSize:30,
           fontWeight:'bold',
-          color:'#20315f',
+          color:'#3EB489',
           padding: 10,
-
         }}>
           Gym Logger
         </Text>
@@ -107,7 +107,7 @@ const Main = ({navigation}) => {
         <TouchableOpacity 
           onPress={() => navigation.navigate('Home')}
             style={{
-              backgroundColor:'#AD40AF',
+              backgroundColor:'#3EB489',
               padding:20,
               width:'90%',
               flexDirection:'row', 
@@ -120,6 +120,15 @@ const Main = ({navigation}) => {
     </SafeAreaView>
   );
 }
+
+const CardioExercise = ({navigation}) => {
+    
+}
+
+const WeightExercise = ({navigation}) => {
+    
+}
+
 
 export default App;
 
