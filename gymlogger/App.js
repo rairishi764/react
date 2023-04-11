@@ -6,11 +6,12 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import Svg, { Circle, Rect } from 'react-native-svg';
-import SambaShoe from "./assets/SambaShoe.svg";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+import SambaShoe from "./assets/SambaShoe.svg";
+import Cardio from "./assets/cardio.svg";
+import Weights from "./assets/weights.svg";
 
 const Stack = createNativeStackNavigator();
 
@@ -28,11 +29,50 @@ const App = () =>{
 
 const Home =() => {
   return(
-  <View style={{flex:1, justifyContent:'center', alignItems:'center'}}>
-    
-    <Text> Home Screen</Text>
+    <SafeAreaView
+    style={{
+      flex:1,
+      justifyContent:'center',
+      backgroundColor:'#fff',
+        alignItems: 'center', // set alignItems to center
+      padding:20
+    }}>
 
-  </View>
+      <View style={{padding:50}}>
+        <TouchableOpacity 
+          onPress={() => navigation.navigate('Home')}
+            style={{
+              backgroundColor:'#3EB489',
+              padding:20,
+              width:'70%',
+              flexDirection:'row', 
+              justifyContent:'space-between'
+              }}>
+            <Cardio width={80} height={80} style={{
+                padding:50,}}/>
+        
+            <Text style={{fontWeight:'bold', fontSize:18,color:"#fff"}}>Cardio</Text>
+        </TouchableOpacity>
+        </View>
+
+        <View style={{padding:50}}>
+        <TouchableOpacity 
+          onPress={() => navigation.navigate('Home')}
+            style={{
+              backgroundColor:'#3EB489',
+              padding:20,
+              width:'70%',
+              flexDirection:'row', 
+              justifyContent:'space-between'
+              }}>
+           <Weights width={80} height={80} style={{
+          padding:50,}}/>
+             
+          <Text style={{fontWeight:'bold', fontSize:18,color:"#fff"}}>Weights</Text>
+        </TouchableOpacity>
+        </View>
+        
+    </SafeAreaView>
   )
 }
 const Main = ({navigation}) => {
