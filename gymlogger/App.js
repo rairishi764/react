@@ -12,6 +12,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SambaShoe from "./assets/SambaShoe.svg";
 import Cardio from "./assets/cardio.svg";
 import Weights from "./assets/weights.svg";
+import CardioLogger from './Screens/CardioScreen';
 
 
 const Stack = createNativeStackNavigator();
@@ -22,6 +23,7 @@ const App = () =>{
       <Stack.Navigator initialRouteName="Main">
       <Stack.Screen component={Home} name="Home"/>
       <Stack.Screen component={Main} name="Main" options={{headerShown:false}}/>
+      <Stack.Screen component={CardioScreen} name="CardioScreen" options={{headerShown:false}}/>
       </Stack.Navigator>
     </NavigationContainer>
     
@@ -41,7 +43,7 @@ const Home =({navigation}) => {
 
       <View style={{padding:50}}>
         <TouchableOpacity 
-          onPress={() => navigation.navigate('Main')}
+          onPress={() => navigation.navigate('CardioScreen')}
             style={{
               backgroundColor:'#3EB489',
               padding:20,
@@ -121,8 +123,11 @@ const Main = ({navigation}) => {
   );
 }
 
-const CardioExercise = ({navigation}) => {
-    
+const CardioScreen = ({navigation}) => {
+    return(
+      
+      <CardioLogger></CardioLogger>
+    )
 }
 
 const WeightExercise = ({navigation}) => {
