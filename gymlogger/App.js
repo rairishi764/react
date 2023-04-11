@@ -6,6 +6,8 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import Svg, { Circle, Rect } from 'react-native-svg';
+import SambaShoe from "./assets/SambaShoe.svg";
 
 export default function App() {
   return (
@@ -15,8 +17,10 @@ export default function App() {
       flex:1,
       justifyContent:'center',
       backgroundColor:'#fff',
+        alignItems: 'center', // set alignItems to center
       padding:20
     }}>
+      
         <Text style={{
           fontSize:30,
           fontWeight:'bold',
@@ -25,7 +29,10 @@ export default function App() {
         }}>
           GymLogger
         </Text>
-
+        <SambaShoe width={240} height={340} style={{
+          padding:50,
+          
+        }}/>
         <TouchableOpacity 
             style={{
               backgroundColor:'#AD40AF',
@@ -34,7 +41,8 @@ export default function App() {
               flexDirection:'row', 
               justifyContent:'space-between'
               }}>
-          <Text style={{fontWeight:'bold', fontSize:18,color:"#fff",fontFamily:'Roboto-BlackItalic'}}>Get Logging</Text>
+                
+          <Text style={{fontWeight:'bold', fontSize:18,color:"#fff"}}>Get Logging</Text>
           <MaterialIcons name='arrow-forward-ios' size={22} color='#fff'/>
         </TouchableOpacity>
     </SafeAreaView>
