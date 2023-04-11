@@ -1,60 +1,40 @@
 import { useState } from 'react';
-import { StyleSheet, Text, View, Button, TextInput,ScrollView,
-FlatList } from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Button,
+  TextInput,
+  FlatList,
+} from 'react-native';
+
+import GoalItem from './components/GoalItem';
+import GoalInput from './components/GoalInput';
 
 export default function App() {
+
   const [enteredGoalText, setEnteredGoalText] = useState('');
   const [courseGoals, setCourseGoals] = useState([]);
-
-  function goalInputHandler(enteredText) {
-    setEnteredGoalText(enteredText);
-  }
-
-  function addGoalHandler() {
-    setCourseGoals((currentCourseGoals) => [
-      ...currentCourseGoals,
-      enteredGoalText,
-    ]);
-  }
-
+   
   return (
     <View style={styles.appContainer}>
-      <View style={styles.inputContainer}>
-        <TextInput
-          style={styles.textInput}
-          placeholder="Your course goal!"
-          onChangeText={goalInputHandler}
-        />
-        <Button title="Add Goal" onPress={addGoalHandler} />
-      </View>
-      
+      <GoalInput/>
       <View style={styles.goalsContainer}>
-      <FlatList data={courseGoals} renderItem={itemData =>{
-        return(
-          <View style={styles.goalItem}>
-               <Text style={styles.goalText}>{itemData.item}</Text>
-          </View>
-      )
-      }} alwaysBounceVertical={false}>
-        <View>
-        
-        </View>
-        </FlatList>
+        <FlatList
+          data={courseGoals}
+          renderItem={(itemData) => {
+            return <GoalItem text={itemData.item.text} />;
+          }}
+          keyExtractor={(item, index) => {
+            return item.id;
+          }}
+          alwaysBounceVertical={false}
+        />
       </View>
-      
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  goalItem:{
-    color: '#fff',
-    backgroundColor:'#5e0acc',
-    padding: 12,
-    margin:8,
-    borderRadius:6,
-
-  },
   appContainer: {
     flex: 1,
     paddingTop: 50,
@@ -75,14 +55,8 @@ const styles = StyleSheet.create({
     width: '70%',
     marginRight: 8,
     padding: 8,
-    
   },
   goalsContainer: {
     flex: 5,
-    
-  },
-  goalText: {
-    color: 'white',
-    
-  },
+  }
 });
