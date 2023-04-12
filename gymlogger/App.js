@@ -17,16 +17,17 @@ import CardioLogger from "./Screens/CardioScreen";
 import WeightliftingLogger from "./Screens/WeightsScreen";
 import WorkoutHome from './Screens/WorkoutHome';
 import LoginScreen from "./Screens/LoginScreen";
+
 const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Main">
+      <Stack.Navigator initialRouteName="Login">
         <Stack.Screen component={Home} name="Home" />
         <Stack.Screen
-          component={Main}
-          name="Main"
+          component={Login}
+          name="Login"
           options={{ headerShown: false }}
         />
         <Stack.Screen
@@ -49,7 +50,7 @@ const Home = ({ navigation }) => {
     <WorkoutHome></WorkoutHome>
   );
 };
-const Main = ({ navigation }) => {
+const Login = ({ navigation }) => {
   return (
     <LoginScreen></LoginScreen>
   );
