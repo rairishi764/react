@@ -9,6 +9,7 @@ import {
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 
 import SambaShoe from "./assets/SambaShoe.svg";
 import Cardio from "./assets/cardio.svg";
@@ -19,12 +20,13 @@ import WorkoutHome from './Screens/WorkoutHome';
 import LoginScreen from "./Screens/LoginScreen";
 
 const Stack = createNativeStackNavigator();
+const Tab = createMaterialBottomTabNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Login">
-        <Stack.Screen component={Home} name="Home" />
+        <Stack.Screen component={TabNavigator} name="Home" />
         <Stack.Screen
           component={Login}
           name="Login"
@@ -33,7 +35,6 @@ const App = () => {
         <Stack.Screen
           component={CardioScreen}
           name="CardioScreen"
-
         />
         <Stack.Screen
           component={WeightsScreen}
@@ -49,6 +50,7 @@ const Home = ({ navigation }) => {
     <WorkoutHome></WorkoutHome>
   );
 };
+
 const Login = ({ navigation }) => {
   return (
     <LoginScreen></LoginScreen>
@@ -60,7 +62,58 @@ const CardioScreen = ({ navigation }) => {
 };
 
 const WeightsScreen = ({ navigation }) => {
-  <WeightliftingLogger></WeightliftingLogger>;
+  return <WeightliftingLogger></WeightliftingLogger>;
+};
+
+const HomeDetails = ({ navigation }) => {
+  return (
+    <View>
+      <Text>Home Details</Text>
+    </View>
+  );
+};
+
+const TabNavigator = () => {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen
+        name="Home"
+        component={Home}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <MaterialIcons name="home" color={color} size={26} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Cardio"
+        component={CardioScreen}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <Cardio fill={color} width={26} height={26} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Weights"
+        component={WeightsScreen}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <Weights fill={color} width={26} height={26} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="HomeDetails"
+        component={HomeDetails}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <MaterialIcons name="details" color={color} size={26} />
+          ),
+        }}
+      />
+    </Tab.Navigator>
+  );
 };
 
 export default App;
