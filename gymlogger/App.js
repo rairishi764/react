@@ -33,12 +33,11 @@ const App = () => {
         <Stack.Screen
           component={CardioScreen}
           name="CardioScreen"
-          options={{ headerShown: false }}
+
         />
         <Stack.Screen
           component={WeightsScreen}
           name="WeightsScreen"
-          options={{ headerShown: false }}
         />
       </Stack.Navigator>
     </NavigationContainer>
