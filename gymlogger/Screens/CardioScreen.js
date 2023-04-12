@@ -9,8 +9,10 @@ import {
 import { Button, TextInput, IconButton } from "react-native-paper";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import moment from "moment";
+import { useNavigation } from '@react-navigation/native';
 
 const CardioLogger = () => {
+  const navigation = useNavigation();  
   const [duration, setDuration] = useState("");
   const [distance, setDistance] = useState("");
   const [cardioType, setCardioType] = useState("");

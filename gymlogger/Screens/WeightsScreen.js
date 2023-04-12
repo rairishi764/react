@@ -9,8 +9,10 @@ import {
 import { Button, TextInput, IconButton } from "react-native-paper";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import moment from "moment";
+import { useNavigation } from '@react-navigation/native';
 
 const WeightliftingLogger = () => {
+  const navigation = useNavigation();  
   const [exercise, setExercise] = useState("");
   const [sets, setSets] = useState("");
   const [reps, setReps] = useState("");
