@@ -5,6 +5,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   SafeAreaView,
+  ScrollView
 } from "react-native";
 import { Button, TextInput, IconButton } from "react-native-paper";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
@@ -79,6 +80,11 @@ const WeightliftingLogger = () => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <ScrollView
+          showsVerticalScrollIndicator={false}
+          vertical
+          style={{ flexDirection: "column", padding: 0, flex: 1 }}
+        >
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.input}
@@ -107,6 +113,7 @@ const WeightliftingLogger = () => {
       >
         Save
       </Button>
+      </ScrollView>
     </SafeAreaView>
   );
 };
