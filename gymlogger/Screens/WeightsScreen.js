@@ -53,8 +53,8 @@ const WeightliftingLogger = () => {
                 step={1}
                 value={reps[i-1]}
                 onValueChange={(value) => handleRepsChange(i, value)}
-                minimumTrackTintColor='#FFD700'
-                thumbTintColor='#FFD700'
+                minimumTrackTintColor='#9971b0'
+                thumbTintColor='#9971b0'
               />
             </View>
             <View style={styles.sliderContainer}>
@@ -66,8 +66,8 @@ const WeightliftingLogger = () => {
                 step={5}
                 value={weight[i-1]}
                 onValueChange={(value) => handleWeightChange(i, value)}
-                minimumTrackTintColor='#6EADFA'
-                thumbTintColor='#6EADFA'
+                minimumTrackTintColor='#6b4c7d'
+                thumbTintColor='#6b4c7d'
               />
             </View>
           </View>
@@ -114,9 +114,9 @@ const WeightliftingLogger = () => {
     step={1}
     value={sets}
     onValueChange={(value) => setSets(value)}
-    minimumTrackTintColor="#FF0000"
-    maximumTrackTintColor="#000000"
-    thumbTintColor="#0000FF"
+    minimumTrackTintColor="#6a2194"
+    maximumTrackTintColor="#f3e8fa"
+    thumbTintColor="#5b1c80"
   />
 </View>
 
