@@ -78,16 +78,21 @@ const WeightliftingLogger = () => {
   };
 
   const handleRepsChange = (index, value) => {
-    const newReps = [...reps];
-    newReps[index - 1] = value;
-    setReps(newReps);
+    setReps((prevReps) => {
+      const newReps = [...prevReps];
+      newReps[index - 1] = value;
+      return newReps;
+    });
   };
-
+  
   const handleWeightChange = (index, value) => {
-    const newWeight = [...weight];
-    newWeight[index - 1] = value;
-    setWeight(newWeight);
+    setWeight((prevWeight) => {
+      const newWeight = [...prevWeight];
+      newWeight[index - 1] = value;
+      return newWeight;
+    });
   };
+  
 
   return (
     <SafeAreaView style={styles.container}>
