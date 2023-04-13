@@ -15,8 +15,8 @@ const WeightliftingLogger = () => {
   const navigation = useNavigation();  
   const [exercise, setExercise] = useState("");
   const [sets, setSets] = useState("");
-  const [reps, setReps] = useState("");
-  const [weight, setWeight] = useState("");
+  const [reps, setReps] = useState([]);
+  const [weight, setWeight] = useState([]);
 
   const handleSave = () => {
     // Save the weightlifting exercise data to a database or file
@@ -31,8 +31,50 @@ const WeightliftingLogger = () => {
     // Clear the input fields
     setExercise("");
     setSets("");
-    setReps("");
-    setWeight("");
+    setReps([]);
+    setWeight([]);
+  };
+
+  const renderSetInputs = () => {
+    const setInputs = [];
+    for (let i = 1; i <= sets; i++) {
+      setInputs.push(
+        <View key={i}>
+          <Text style={styles.label}>{`Set ${i}`}</Text>
+          <View style={styles.row}>
+            <TextInput
+              style={[styles.input, styles.smallInput]}
+              mode="outlined"
+              label="Reps"
+              value={reps[i - 1]}
+              onChangeText={(text) => handleRepsChange(i, text)}
+              keyboardType="numeric"
+            />
+            <TextInput
+              style={[styles.input, styles.smallInput]}
+              mode="outlined"
+              label="Weight (in lbs)"
+              value={weight[i - 1]}
+              onChangeText={(text) => handleWeightChange(i, text)}
+              keyboardType="numeric"
+            />
+          </View>
+        </View>
+      );
+    }
+    return setInputs;
+  };
+
+  const handleRepsChange = (index, text) => {
+    const newReps = [...reps];
+    newReps[index - 1] = text;
+    setReps(newReps);
+  };
+
+  const handleWeightChange = (index, text) => {
+    const newWeight = [...weight];
+    newWeight[index - 1] = text;
+    setWeight(newWeight);
   };
 
   return (
@@ -53,22 +95,7 @@ const WeightliftingLogger = () => {
           onChangeText={(text) => setSets(text)}
           keyboardType="numeric"
         />
-        <TextInput
-          style={styles.input}
-          mode="outlined"
-          label="Reps"
-          value={reps}
-          onChangeText={(text) => setReps(text)}
-          keyboardType="numeric"
-        />
-        <TextInput
-          style={styles.input}
-          mode="outlined"
-          label="Weight (in lbs)"
-          value={weight}
-          onChangeText={(text) => setWeight(text)}
-          keyboardType="numeric"
-        />
+        {renderSetInputs()}
       </View>
 
       <Button
@@ -76,7 +103,7 @@ const WeightliftingLogger = () => {
         icon="content-save"
         mode="contained"
         onPress={handleSave}
-        disabled={!exercise || !sets || !reps || !weight}
+        disabled={!exercise || !sets || reps.length < sets || weight.length < sets}
       >
         Save
       </Button>
@@ -93,7 +120,7 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     marginBottom: 16,
-    padding:35
+    padding: 35,
   },
   input: {
     marginBottom: 8,
@@ -101,6 +128,23 @@ const styles = StyleSheet.create({
   saveButton: {
     alignSelf: "center",
     marginTop: 16,
+  },
+  setRowContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 16,
+  },
+  setNumber: {
+    fontWeight: "bold",
+    marginRight: 8,
+    fontSize: 16,
+  },
+  weightInput: {
+    flex: 1,
+    marginRight: 8,
+  },
+  repsInput: {
+    flex: 1,
   },
 });
 

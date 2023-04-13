@@ -52,9 +52,9 @@ const WorkoutHome = () => {
     },
   };
 
-  const handleTypeSelection = (type) => {
+  const handleTypeSelection = (type, screen) => {
     setSelectedType(type);
-    navigation.navigate("CardioScreen", { selectedType: type });
+    navigation.navigate(screen, { selectedType: type });
   };
 
   return (
@@ -70,7 +70,7 @@ const WorkoutHome = () => {
         >
           <View style={styles.itemContainer}>
             <TouchableOpacity
-              onPress={() => handleTypeSelection("Bodyweight")}
+              onPress={() => handleTypeSelection("Bodyweight","WeightsScreen")}
               style={styles.itemButton}
             >
               <View style={{ flexDirection: "column" }}>
@@ -82,7 +82,7 @@ const WorkoutHome = () => {
 
           <View style={styles.itemContainer}>
             <TouchableOpacity
-              onPress={() => handleTypeSelection("Cardio")}
+              onPress={() => handleTypeSelection("Cardio","CardioScreen")}
               style={styles.itemButton}
             >
               <View style={{ flexDirection: "column" }}>
