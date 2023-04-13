@@ -104,57 +104,23 @@ const WeightliftingLogger = () => {
             value={exercise}
             onChangeText={(text) => setExercise(text)}
           />
-          <Slider
-            style={{ marginTop: 10 }}
-            minimumValue={1}
-            maximumValue={10}
-            step={1}
-            value={sets}
-            onValueChange={(value) => setSets(value)}
-            minimumTrackTintColor="#FF0000"
-            maximumTrackTintColor="#000000"
-            thumbTintColor="#0000FF"
-          />
-          <View style={{ flexDirection: "row", alignItems: "center" }}>
-            <Text style={{ marginRight: 10 }}>Reps:</Text>
-            <Slider
-              style={{ flex: 1 }}
-              minimumValue={1}
-              maximumValue={20}
-              step={1}
-              value={reps[0]}
-              onValueChange={(value) => {
-                const newReps = [];
-                for (let i = 0; i < sets; i++) {
-                  newReps.push(value);
-                }
-                setReps(newReps);
-              }}
-              minimumTrackTintColor="#FF0000"
-              maximumTrackTintColor="#000000"
-              thumbTintColor="#0000FF"
-            />
-          </View>
-          <View style={{ flexDirection: "row", alignItems: "center" }}>
-            <Text style={{ marginRight: 10 }}>Weight:</Text>
-            <Slider
-              style={{ flex: 1 }}
-              minimumValue={1}
-              maximumValue={100}
-              step={1}
-              value={weight[0]}
-              onValueChange={(value) => {
-                const newWeight = [];
-                for (let i = 0; i < sets; i++) {
-                  newWeight.push(value);
-                }
-                setWeight(newWeight);
-              }}
-              minimumTrackTintColor="#FF0000"
-              maximumTrackTintColor="#000000"
-              thumbTintColor="#0000FF"
-            />
-          </View>
+
+<View>
+  <Text style={styles.label}>Sets: {sets}</Text>
+  <Slider
+    style={{ marginTop: 10 }}
+    minimumValue={1}
+    maximumValue={10}
+    step={1}
+    value={sets}
+    onValueChange={(value) => setSets(value)}
+    minimumTrackTintColor="#FF0000"
+    maximumTrackTintColor="#000000"
+    thumbTintColor="#0000FF"
+  />
+</View>
+
+
           {renderSetInputs()}
         </View>
         <Button
@@ -215,6 +181,10 @@ const WeightliftingLogger = () => {
       minWidth: 50,
       textAlign: "center",
     },
+    label: {
+      fontSize: 12,
+      marginTop: 5,
+    }    
   });
 
 export default WeightliftingLogger;
