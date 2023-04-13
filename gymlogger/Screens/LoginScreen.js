@@ -18,14 +18,14 @@ const LoginScreen = () => {
     title: {
       fontSize: 30,
       fontWeight: "bold",
-      color: "#3EB489",
+      color: "#941796",
       padding: 10,
     },
     imageContainer: {
       padding: 50,
     },
     button: {
-      backgroundColor: "#3EB489",
+      backgroundColor: "#941796",
       padding: 20,
       width: "90%",
       flexDirection: "row",

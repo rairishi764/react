@@ -11,7 +11,6 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 
-import SambaShoe from "./assets/SambaShoe.svg";
 import Cardio from "./assets/cardio.svg";
 import Weights from "./assets/weights.svg";
 import CardioLogger from "./Screens/CardioScreen";
@@ -77,7 +76,7 @@ const TabNavigator = () => {
   return (
     <Tab.Navigator>
       <Tab.Screen
-        name="Home"
+        name="Explore"
         component={Home}
         options={{
           tabBarIcon: ({ color }) => (
@@ -86,7 +85,7 @@ const TabNavigator = () => {
         }}
       />
       <Tab.Screen
-        name="Cardio"
+        name="Create"
         component={CardioScreen}
         options={{
           tabBarIcon: ({ color }) => (
@@ -95,7 +94,7 @@ const TabNavigator = () => {
         }}
       />
       <Tab.Screen
-        name="Weights"
+        name="Progress"
         component={WeightsScreen}
         options={{
           tabBarIcon: ({ color }) => (
@@ -104,11 +103,11 @@ const TabNavigator = () => {
         }}
       />
       <Tab.Screen
-        name="HomeDetails"
+        name="Settings"
         component={HomeDetails}
         options={{
           tabBarIcon: ({ color }) => (
-            <MaterialIcons name="details" color={color} size={26} />
+            <MaterialIcons name="account" color={color} size={26} />
           ),
         }}
       />

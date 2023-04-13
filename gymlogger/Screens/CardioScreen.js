@@ -135,9 +135,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
+    padding:35
   },
   inputContainer: {
     marginBottom: 16,
+    
   },
   input: {
     marginBottom: 8,

@@ -34,7 +34,7 @@ const WorkoutHome = () => {
       padding: 10,
     },
     itemButton: {
-      backgroundColor: "#3EB489",
+      backgroundColor: "#941796",
       padding: 20,
       width: 150,
       flexDirection: "row",
