@@ -55,6 +55,7 @@ const WeightliftingLogger = () => {
                 onValueChange={(value) => handleRepsChange(i, value)}
                 minimumTrackTintColor='#9971b0'
                 thumbTintColor='#9971b0'
+                thumbStyle={{ width: 10, height: 25 }}
               />
             </View>
             <View style={styles.sliderContainer}>
@@ -68,6 +69,7 @@ const WeightliftingLogger = () => {
                 onValueChange={(value) => handleWeightChange(i, value)}
                 minimumTrackTintColor='#6b4c7d'
                 thumbTintColor='#6b4c7d'
+                thumbStyle={{ width: 10, height: 25 }}
               />
             </View>
           </View>
@@ -122,6 +124,7 @@ const WeightliftingLogger = () => {
     minimumTrackTintColor="#6a2194"
     maximumTrackTintColor="#f3e8fa"
     thumbTintColor="#5b1c80"
+    thumbStyle={{ width: 10, height: 25 }}
   />
 </View>
 
@@ -180,7 +183,7 @@ const WeightliftingLogger = () => {
     slider: {
       flex: 1,
       marginLeft: 16,
-      marginRight: 8,
+      marginRight: 8
     },
     sliderValue: {
       minWidth: 50,
