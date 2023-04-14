@@ -107,7 +107,7 @@ const TabNavigator = () => {
         component={HomeDetails}
         options={{
           tabBarIcon: ({ color }) => (
-            <MaterialIcons name="account" color={color} size={26} />
+            <MaterialIcons name="account-box" color={color} size={26} />
           ),
         }}
       />

@@ -6,29 +6,25 @@ import {
   TouchableOpacity,
   ScrollView,
   ImageBackground,
+  StyleSheet,
+  Image,
 } from "react-native";
 import { Button, TextInput, IconButton } from "react-native-paper";
-import MaterialIcons from "react-native-vector-icons/MaterialIcons";
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import CardioIcon from "../assets/cardio.svg";
-import { useNavigation, useRoute } from '@react-navigation/native';
-import Feather from 'react-native-vector-icons/Feather';
-
-
+import { useNavigation, useRoute } from "@react-navigation/native";
+import BannerSlider from "../components/BannerSlider";
+import { windowWidth } from "../utils/Dimensions";
+import Carousel from "react-native-snap-carousel";
+import { sliderData } from "../components/data";
 
 const WorkoutHome = () => {
-  const navigation = useNavigation();
-
-  const [selectedType, setSelectedType] = useState("");
-
   const styles = {
     container: {
       flex: 1,
       alignItems: "center",
       backgroundColor: "#fff",
       padding: 0,
-      width: "100%"
+      width: "100%",
     },
     header: {
       padding: 10,
@@ -56,6 +52,12 @@ const WorkoutHome = () => {
     },
   };
 
+  const navigation = useNavigation();
+
+  const [selectedType, setSelectedType] = useState("");
+  const renderBanner = (item, index) => {
+    return <BannerSlider data={item} />;
+  };
   const handleTypeSelection = (type, screen) => {
     setSelectedType(type);
     navigation.navigate(screen, { selectedType: type });
@@ -65,40 +67,41 @@ const WorkoutHome = () => {
     <SafeAreaView style={styles.container}>
       <View
         style={{
-          flexDirection:'row',
-          justifyContent:'space-between',
-          marginBottom:20,
-          borderRadius:8,
-          paddingHorizontal:10,
-          paddingVertical:8,
-          width:'100%'
-        }}>
-           <Text>Hello John Doe</Text>
-           <ImageBackground
-            source={require('../assets/user.jpg')}
-            style={{width:35,height:35}}
-            imageStyle={{borderRadius:25}}/>
+          flexDirection: "row",
+          justifyContent: "space-between",
+          marginBottom: 20,
+          borderRadius: 8,
+          paddingHorizontal: 10,
+          paddingVertical: 8,
+          width: "100%",
+        }}
+      >
+        <Text>Hello John Doe</Text>
+        <ImageBackground
+          source={require("../assets/user.jpg")}
+          style={{ width: 35, height: 35 }}
+          imageStyle={{ borderRadius: 25 }}
+        />
       </View>
-      <View style={{ flexDirection:'row'}}>
-        <TextInput placeholder='Search' style={{width:'95%'}}/>
+      <View style={{ flexDirection: "row" }}>
+        <TextInput placeholder="Search" style={{ width: "95%" }} />
       </View>
-      
 
-
-      <View 
+      <View
         style={{
-          marginVertical:15,
-          flexDirection:'row',
-          justifyContent:'space-between',
-          width:'95%'
-        }}>
-          <Text style={{fontSize:18}}>Top Workouts</Text>
-          <TouchableOpacity onPress={()=>{}}>
-            <Text style={{color:'#941796'}}>See all</Text>
-          </TouchableOpacity>
-        </View>
+          marginVertical: 15,
+          flexDirection: "row",
+          justifyContent: "space-between",
+          width: "95%",
+        }}
+      >
+        <Text style={{ fontSize: 18 }}>Top Workouts</Text>
+        <TouchableOpacity onPress={() => {}}>
+          <Text style={{ color: "#941796" }}>See all</Text>
+        </TouchableOpacity>
+      </View>
 
-
+        <BannerSlider></BannerSlider>
 
       <View style={{ height: 190 }}>
         <View>
@@ -111,7 +114,7 @@ const WorkoutHome = () => {
         >
           <View style={styles.itemContainer}>
             <TouchableOpacity
-              onPress={() => handleTypeSelection("Bodyweight","WeightsScreen")}
+              onPress={() => handleTypeSelection("Bodyweight", "WeightsScreen")}
               style={styles.itemButton}
             >
               <View style={{ flexDirection: "column" }}>
@@ -121,12 +124,9 @@ const WorkoutHome = () => {
             </TouchableOpacity>
           </View>
 
-
-
-
           <View style={styles.itemContainer}>
             <TouchableOpacity
-              onPress={() => handleTypeSelection("Cardio","CardioScreen")}
+              onPress={() => handleTypeSelection("Cardio", "CardioScreen")}
               style={styles.itemButton}
             >
               <View style={{ flexDirection: "column" }}>
@@ -149,3 +149,20 @@ const WorkoutHome = () => {
 };
 
 export default WorkoutHome;
+
+const styles1 = StyleSheet.create({
+  slide: {
+    backgroundColor: "white",
+    borderRadius: 5,
+    padding: 20,
+    marginHorizontal: 10,
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: "bold",
+    marginBottom: 10,
+  },
+  text: {
+    fontSize: 16,
+  },
+});
