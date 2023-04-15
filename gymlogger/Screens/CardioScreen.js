@@ -51,7 +51,7 @@ const CardioLogger = () => {
             <Icon
               name={cardioType === "running" ? "run-fast" : "run"}
               size={32}
-              color={cardioType === "running" ? "#00bcd4" : "#999"}
+              color={cardioType === "running" ? "#6a2194" : "#999"}
             />
             <Text style={styles.cardioTypeText}>Running</Text>
           </TouchableOpacity>
@@ -59,7 +59,7 @@ const CardioLogger = () => {
             <Icon
               name={cardioType === "cycling" ? "bike-fast" : "bike"}
               size={32}
-              color={cardioType === "cycling" ? "#00bcd4" : "#999"}
+              color={cardioType === "cycling" ? "#6a2194" : "#999"}
             />
             <Text style={styles.cardioTypeText}>Cycling</Text>
           </TouchableOpacity>
@@ -68,7 +68,7 @@ const CardioLogger = () => {
             <Icon
               name={cardioType === "eliptical" ? "ellipse" : "ellipse-outline"}
               size={32}
-              color={cardioType === "eliptical" ? "#00bcd4" : "#999"}
+              color={cardioType === "eliptical" ? "#6a2194" : "#999"}
             />
             <Text style={styles.cardioTypeText}>Eliptical</Text>
           </TouchableOpacity>
@@ -77,7 +77,7 @@ const CardioLogger = () => {
             <Icon
               name={cardioType === "swimming" ? "swim" : "swim"}
               size={32}
-              color={cardioType === "swimming" ? "#00bcd4" : "#999"}
+              color={cardioType === "swimming" ? "#6a2194" : "#999"}
             />
             <Text style={styles.cardioTypeText}>Swimming</Text>
           </TouchableOpacity>
@@ -86,7 +86,7 @@ const CardioLogger = () => {
             <Icon
               name={cardioType === "walking" ? "walk" : "walk"}
               size={32}
-              color={cardioType === "walking" ? "#00bcd4" : "#999"}
+              color={cardioType === "walking" ? "#6a2194" : "#999"}
             />
             <Text style={styles.cardioTypeText}>Walking</Text>
           </TouchableOpacity>
@@ -95,7 +95,7 @@ const CardioLogger = () => {
             <Icon
               name={cardioType === "stairclimbing" ? "stairs" : "stairs"}
               size={32}
-              color={cardioType === "stairclimbing" ? "#00bcd4" : "#999"}
+              color={cardioType === "stairclimbing" ? "#6a2194" : "#999"}
             />
             <Text style={styles.cardioTypeText}>Stairs</Text>
           </TouchableOpacity>
@@ -113,6 +113,7 @@ const CardioLogger = () => {
             minimumTrackTintColor="#6a2194"
             maximumTrackTintColor="#f3e8fa"
             thumbTintColor="#5b1c80"
+            thumbStyle={{ width: 10, height: 25 }}
           />
         </View>
 
@@ -174,6 +175,7 @@ const styles = StyleSheet.create({
     marginLeft: 16,
     marginRight: 8,
   },
+  
   sliderValue: {
     minWidth: 50,
     textAlign: "center",
