@@ -9,17 +9,17 @@ import {
 import { Button, TextInput, IconButton } from "react-native-paper";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import moment from "moment";
-import { useNavigation, useRoute } from '@react-navigation/native';
+import { useNavigation, useRoute } from "@react-navigation/native";
+import { Slider } from "react-native-elements";
 
 const CardioLogger = () => {
-  const navigation = useNavigation();  
+  const navigation = useNavigation();
   const route = useRoute();
 
   const [duration, setDuration] = useState("");
   const [distance, setDistance] = useState("");
   const [cardioType, setCardioType] = useState("");
   const [exerciseType, setExerciseType] = useState(route.params.selectedType);
-
 
   const handleSave = () => {
     // Save the cardio exercise data to a database or file
@@ -46,8 +46,7 @@ const CardioLogger = () => {
       }}
     >
       <View style={styles.container}>
-
-      <View style={styles.cardioTypesContainer}>
+        <View style={styles.cardioTypesContainer}>
           <TouchableOpacity onPress={() => setCardioType("running")}>
             <Icon
               name={cardioType === "running" ? "run-fast" : "run"}
@@ -102,16 +101,23 @@ const CardioLogger = () => {
           </TouchableOpacity>
         </View>
 
+        <View style={styles.sliderContainer}>
+          <Text style={styles.sliderText}>Duration: {duration} minutes</Text>
+          <Slider
+            style={{ width: "100%" }}
+            minimumValue={0}
+            maximumValue={120}
+            step={5}
+            value={duration}
+            onValueChange={(value) => setDuration(value)}
+            minimumTrackTintColor="#6a2194"
+            maximumTrackTintColor="#f3e8fa"
+            thumbTintColor="#5b1c80"
+          />
+        </View>
+
 
         <View style={styles.inputContainer}>
-          <TextInput
-            style={styles.input}
-            mode="outlined"
-            label="Duration (in minutes)"
-            value={duration}
-            onChangeText={(text) => setDuration(text)}
-            keyboardType="numeric"
-          />
           <TextInput
             style={styles.input}
             mode="outlined"
@@ -140,11 +146,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    padding:35
+    padding: 35,
   },
   inputContainer: {
     marginBottom: 16,
-    
   },
   input: {
     marginBottom: 8,
@@ -163,6 +168,15 @@ const styles = StyleSheet.create({
   saveButton: {
     alignSelf: "center",
     marginTop: 16,
+  },
+  slider: {
+    flex: 1,
+    marginLeft: 16,
+    marginRight: 8,
+  },
+  sliderValue: {
+    minWidth: 50,
+    textAlign: "center",
   },
 });
 
