@@ -17,6 +17,7 @@ import CardioLogger from "./Screens/CardioScreen";
 import WeightliftingLogger from "./Screens/WeightsScreen";
 import WorkoutHome from './Screens/WorkoutHome';
 import LoginScreen from "./Screens/LoginScreen";
+import ProfileScreen from './Screens/ProfileScreen'
 
 const Stack = createNativeStackNavigator();
 const Tab = createMaterialBottomTabNavigator();
@@ -66,9 +67,7 @@ const WeightsScreen = ({ navigation }) => {
 
 const HomeDetails = ({ navigation }) => {
   return (
-    <View>
-      <Text>Home Details</Text>
-    </View>
+<ProfileScreen></ProfileScreen>
   );
 };
 
