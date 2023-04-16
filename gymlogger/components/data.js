@@ -1,18 +1,18 @@
 export const sliderData = [
     {
-        title : 'First Workout',
+        title : 'Run',
         image: require('../assets/run.jpg')
     },
     {
-        title : 'Second Workout',
+        title : 'Dead Lifts',
         image: require('../assets/deadLift.jpg'),
     },
     {
-        title : 'Third Workout',
+        title : 'Warm Up',
         image: require('../assets/warmup.jpg'),
     },
     {
-        title : 'Fourth Workout',
+        title : 'Run',
         image: require('../assets/run.jpg'),
     },
 ]
