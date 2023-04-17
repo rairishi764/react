@@ -18,7 +18,7 @@ import WeightliftingLogger from "./Screens/WeightsScreen";
 import WorkoutHome from './Screens/WorkoutHome';
 import LoginScreen from "./Screens/LoginScreen";
 import ProfileScreen from './Screens/ProfileScreen'
-
+import ProgressScreen from './Screens/ProgressScreen'
 const Stack = createNativeStackNavigator();
 const Tab = createMaterialBottomTabNavigator();
 
@@ -40,6 +40,11 @@ const App = () => {
           component={WeightsScreen}
           name="WeightsScreen"
         />
+
+<Stack.Screen
+          component={ProgressScreen}
+          name="ProgressScreen"
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -56,6 +61,10 @@ const Login = ({ navigation }) => {
     <LoginScreen></LoginScreen>
   );
 };
+
+const Progress = () =>{
+  return <ProgressScreen></ProgressScreen>
+}
 
 const CardioScreen = ({ navigation }) => {
   return <CardioLogger></CardioLogger>;
@@ -94,7 +103,7 @@ const TabNavigator = () => {
       />
       <Tab.Screen
         name="Progress"
-        component={WeightsScreen}
+        component={ProgressScreen}
         options={{
           tabBarIcon: ({ color }) => (
             <Weights fill={color} width={26} height={26} />
