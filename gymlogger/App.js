@@ -38,11 +38,6 @@ const App = () => {
   );
 };
 
-const Home = () => {
-  return (
-    <WorkoutHome></WorkoutHome>
-  );
-};
 
 const Login = () => {
   return (
@@ -50,9 +45,6 @@ const Login = () => {
   );
 };
 
-const Progress = () =>{
-  return <ProgressScreen></ProgressScreen>
-}
 
 const CardioScreen = () => {
   return <CardioLogger></CardioLogger>;
