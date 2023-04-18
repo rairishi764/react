@@ -1,28 +1,14 @@
 import React from "react";
-import {
-  SafeAreaView,
-  View,
-  Text,
-  TouchableOpacity,
-  ScrollView,
-} from "react-native";
-import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
-
-import Cardio from "./assets/cardio.svg";
-import Weights from "./assets/weights.svg";
 import CardioLogger from "./Screens/CardioScreen";
 import WeightliftingLogger from "./Screens/WeightsScreen";
 import WorkoutHome from './Screens/WorkoutHome';
 import LoginScreen from "./Screens/LoginScreen";
-import ProfileScreen from './Screens/ProfileScreen'
 import ProgressScreen from './Screens/ProgressScreen'
 import BottomMenu from './components/BottomMenu'
 
 const Stack = createNativeStackNavigator();
-//const Tab = createMaterialBottomTabNavigator();
 
 const App = () => {
   return (
@@ -74,12 +60,6 @@ const CardioScreen = () => {
 
 const WeightsScreen = () => {
   return <WeightliftingLogger></WeightliftingLogger>;
-};
-
-const HomeDetails = () => {
-  return (
-<ProfileScreen></ProfileScreen>
-  );
 };
 
 export default App;
