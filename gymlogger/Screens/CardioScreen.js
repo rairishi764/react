@@ -91,7 +91,7 @@ const CardioLogger = () => {
                 borderRadius: 10,
                 borderWidth: 0.5,
                 alignSelf: "center",
-                marginTop: 100,
+                marginTop: 10,
                 flexDirection: "row",
                 justifyContent: "space-between",
                 alignItems: "center",

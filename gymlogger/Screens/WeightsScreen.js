@@ -8,6 +8,7 @@ import {
   ScrollView,
   Image,
   FlatList,
+  Alert
 } from "react-native";
 import { Button, TextInput, IconButton } from "react-native-paper";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
@@ -62,13 +63,25 @@ const WeightliftingLogger = () => {
 
   const handleSave = () => {
     // Save the weightlifting exercise data to a database or file
+    Alert.alert('Confirmation', "Are you sure you want to submit", [
+      {
+        text: 'Cancel',
+        onPress: () => console.log('Cancel Pressed'),
+        style: 'cancel',
+      },
+      {text: 'OK', onPress: () => console.log('OK Pressed')},
+    ]);
+    
+
     console.log("Weightlifting exercise saved:", {
       selectedWeightWorkout,
       sets,
       reps,
       weight,
       date: moment().format("YYYY-MM-DD"),
-    });
+    }
+    
+    );
 
     // Clear the input fields
     setSets(1);
@@ -214,7 +227,7 @@ const WeightliftingLogger = () => {
                   }}
                 />
 
-                <FlatList
+                <FlatList 
                   data={data}
                   renderItem={({ item, index }) => {
                     return (
