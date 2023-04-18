@@ -7,33 +7,32 @@ import {
   FlatList,
 } from "react-native";
 import React, { useRef, useState } from "react";
-const weightWorkoutType = [
-  { workout: "Bench Press" },
-  { workout: "Squats" },
-  { workout: "Deadlifts" },
-  { workout: "Shoulder Press" },
-  { workout: "Barbell Rows" },
-  { workout: "Bicep Curls" },
-  { workout: "Tricep Extensions" },
-  { workout: "Lunges" },
-  { workout: "Leg Press" },
-  { workout: "Pull-Ups" },
-  { workout: "Dips" },
-  { workout: "Leg Curls" },
-  { workout: "Leg Extensions" },
-  { workout: "Calf Raises" },
-  { workout: "Abdominal Crunches" },
-  { workout: "Planks" },
-  { workout: "Russian Twists" },
-  { workout: "Cable Rows" },
-  { workout: "Chest Flys" },
-  { workout: "Lat Pulldowns" },
-];
+const cardioWorkoutType = [
+    { workout: "Running" },
+    { workout: "Cycling" },
+    { workout: "Rowing" },
+    { workout: "Swimming" },
+    { workout: "Elliptical" },
+    { workout: "Stair Climber" },
+    { workout: "Jump Rope" },
+    { workout: "High-Intensity Interval Training (HIIT)" },
+    { workout: "Sprinting" },
+    { workout: "Boxing" },
+    { workout: "Kickboxing" },
+    { workout: "Dancing" },
+    { workout: "Walking" },
+    { workout: "Hiking" },
+    { workout: "Rollerblading" },
+    { workout: "Skateboarding" },
+    { workout: "Skiing" },
+    { workout: "Snowboarding" },
+  ];
+  
 const App = () => {
   const [search, setSearch] = useState("");
   const [clicked, setClicked] = useState(false);
-  const [data, setData] = useState(weightWorkoutType);
-  const [selectedWeightWorkout, setSelectedWeightWorkout] = useState("");
+  const [data, setData] = useState(cardioWorkoutType);
+  const [selectedCardioWorkout, setSelectedCardioWorkout] = useState("");
   const searchRef = useRef();
   const onSearch = (search) => {
     if (search !== "") {
@@ -42,14 +41,14 @@ const App = () => {
       });
       setData(tempData);
     } else {
-      setData(weightWorkoutType);
+      setData(cardioWorkoutType);
     }
   };
   return (
     <View style={{ flex: 1 }}>
       <TouchableOpacity
         style={{
-          width: "90%",
+          width: "100%",
           height: 50,
           borderRadius: 10,
           borderWidth: 0.5,
@@ -66,9 +65,9 @@ const App = () => {
         }}
       >
         <Text style={{ fontWeight: "600" }}>
-          {selectedWeightWorkout == ""
+          {selectedCardioWorkout == ""
             ? "Select Workout"
-            : selectedWeightWorkout}
+            : selectedCardioWorkout}
         </Text>
         {clicked ? (
           <Image
@@ -89,7 +88,7 @@ const App = () => {
             marginTop: 20,
             height: 300,
             alignSelf: "center",
-            width: "90%",
+            width: "100%",
             backgroundColor: "#fff",
             borderRadius: 10,
           }}
@@ -103,7 +102,7 @@ const App = () => {
               setSearch(txt);
             }}
             style={{
-              width: "90%",
+              width: "100%",
               height: 50,
               alignSelf: "center",
               borderWidth: 0.2,
@@ -120,7 +119,7 @@ const App = () => {
               return (
                 <TouchableOpacity
                   style={{
-                    width: "85%",
+                    width: "100%",
                     alignSelf: "center",
                     height: 50,
                     justifyContent: "center",
@@ -128,7 +127,7 @@ const App = () => {
                     borderColor: "#8e8e8e",
                   }}
                   onPress={() => {
-                    setSelectedWeightWorkout(item.workout);
+                    setSelectedCardioWorkout(item.workout);
                     setClicked(!clicked);
                     onSearch("");
                     setSearch("");
