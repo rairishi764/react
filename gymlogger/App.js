@@ -19,14 +19,16 @@ import WorkoutHome from './Screens/WorkoutHome';
 import LoginScreen from "./Screens/LoginScreen";
 import ProfileScreen from './Screens/ProfileScreen'
 import ProgressScreen from './Screens/ProgressScreen'
+import BottomMenu from './components/BottomMenu'
+
 const Stack = createNativeStackNavigator();
-const Tab = createMaterialBottomTabNavigator();
+//const Tab = createMaterialBottomTabNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Login">
-        <Stack.Screen component={TabNavigator} name="Home" />
+        <Stack.Screen component={BottomMenu} name="Home" />
         <Stack.Screen
           component={Login}
           name="Login"
@@ -50,13 +52,13 @@ const App = () => {
   );
 };
 
-const Home = ({ navigation }) => {
+const Home = () => {
   return (
     <WorkoutHome></WorkoutHome>
   );
 };
 
-const Login = ({ navigation }) => {
+const Login = () => {
   return (
     <LoginScreen></LoginScreen>
   );
@@ -66,15 +68,15 @@ const Progress = () =>{
   return <ProgressScreen></ProgressScreen>
 }
 
-const CardioScreen = ({ navigation }) => {
+const CardioScreen = () => {
   return <CardioLogger></CardioLogger>;
 };
 
-const WeightsScreen = ({ navigation }) => {
+const WeightsScreen = () => {
   return <WeightliftingLogger></WeightliftingLogger>;
 };
 
-const HomeDetails = ({ navigation }) => {
+const HomeDetails = () => {
   return (
 <ProfileScreen></ProfileScreen>
   );
