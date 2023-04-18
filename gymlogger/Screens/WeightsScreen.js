@@ -19,8 +19,8 @@ const WeightliftingLogger = () => {
   const navigation = useNavigation();
 
   const [sets, setSets] = useState(1);
-  const [reps, setReps] = useState([0]);
-  const [weight, setWeight] = useState([0]);
+  const [weight, setWeight] = useState(Array.from({ length: sets }, () => 10));
+  const [reps, setReps] = useState(Array.from({ length: sets }, () => 10));
   const weightWorkoutType = [
     { workout: "Bench Press" },
     { workout: "Squats" },
@@ -84,13 +84,15 @@ const WeightliftingLogger = () => {
           <Text style={styles.label}>{`Set ${i}`}</Text>
           <View style={styles.row}>
             <View style={styles.sliderContainer}>
-              <Text style={styles.label}>{`Reps: ${reps[i - 1]}`}</Text>
+              <Text style={styles.label}>{`Reps: ${
+                reps[i - 1] !== undefined ? reps[i - 1] : 0
+              }`}</Text>
               <Slider
                 style={styles.slider}
                 minimumValue={0}
                 maximumValue={20}
                 step={1}
-                value={reps[i - 1]}
+                value={reps[i - 1] || 0}
                 onValueChange={(value) => handleRepsChange(i, value)}
                 minimumTrackTintColor="#9971b0"
                 thumbTintColor="#9971b0"
@@ -99,14 +101,14 @@ const WeightliftingLogger = () => {
             </View>
             <View style={styles.sliderContainer}>
               <Text style={styles.label}>{`Weight (in lbs): ${
-                weight[i - 1]
+                weight[i - 1] !== undefined ? weight[i - 1] : 0
               }`}</Text>
               <Slider
                 style={styles.slider}
                 minimumValue={0}
                 maximumValue={200}
                 step={5}
-                value={weight[i - 1]}
+                value={weight[i - 1] || 0}
                 onValueChange={(value) => handleWeightChange(i, value)}
                 minimumTrackTintColor="#6b4c7d"
                 thumbTintColor="#6b4c7d"
