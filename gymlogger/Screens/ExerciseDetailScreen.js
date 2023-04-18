@@ -126,7 +126,7 @@ const MyComponent = () => {
               source={{ uri: selectedItem.videoUrl }}
               ref={videoRef}
               style={styles.video}
-              useNativeControls={false}
+              useNativeControls={true}
               resizeMode="contain"
               onPlaybackStatusUpdate={(status) => setIsPlaying(status.isPlaying)}
             />
