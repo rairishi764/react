@@ -82,47 +82,4 @@ const HomeDetails = () => {
   );
 };
 
-const TabNavigator = () => {
-  return (
-    <Tab.Navigator>
-      <Tab.Screen
-        name="Explore"
-        component={Home}
-        options={{
-          tabBarIcon: ({ color }) => (
-            <MaterialIcons name="home" color={color} size={26} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Create"
-        component={CardioScreen}
-        options={{
-          tabBarIcon: ({ color }) => (
-            <Cardio fill={color} width={26} height={26} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Progress"
-        component={ProgressScreen}
-        options={{
-          tabBarIcon: ({ color }) => (
-            <Weights fill={color} width={26} height={26} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Settings"
-        component={HomeDetails}
-        options={{
-          tabBarIcon: ({ color }) => (
-            <MaterialIcons name="account-box" color={color} size={26} />
-          ),
-        }}
-      />
-    </Tab.Navigator>
-  );
-};
-
 export default App;
