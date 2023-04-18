@@ -7,10 +7,9 @@ import {
   TouchableOpacity,
   StyleSheet,
   Text,
+  Modal
 } from "react-native";
 import Video from 'react-native-video';
-import { Modal } from "react-native";
-
 
 
 const DATA = [  {    id: "1",    name: "Bench Press",    muscles: ["Chest", "Triceps"],
@@ -42,6 +41,7 @@ const ExerciseDetailScreen = () => {
       showModal: false,
     }))
   );
+  const [selectedWorkout, setSelectedWorkout] = useState(null);
 
   const toggleModal = (itemId) => {
     setWorkouts((prevWorkouts) =>
@@ -49,6 +49,7 @@ const ExerciseDetailScreen = () => {
         item.id === itemId ? { ...item, showModal: !item.showModal } : item
       )
     );
+    setSelectedWorkout(workouts.find((item) => item.id === itemId));
   };
 
 
@@ -204,7 +205,40 @@ const styles = StyleSheet.create({
       color: "#FFFFFF",
       fontSize: 16,
       fontWeight: "bold",
-    }  
+    },
+    modalContainer: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "rgba(0,0,0,0.5)",
+      },
+      modal: {
+        backgroundColor: "#FFFFFF",
+        borderRadius: 10,
+        padding: 20,
+        width: "80%",
+      },
+      modalTitle: {
+        fontSize: 20,
+        fontWeight: "bold",
+        marginBottom: 10,
+      },
+      modalDescription: {
+        fontSize: 16,
+        marginBottom: 10,
+      },
+      closeButton: {
+        backgroundColor: "#F44336",
+        borderRadius: 5,
+        padding: 10,
+        alignSelf: "flex-end",
+      },
+      closeButtonText: {
+        color: "#FFFFFF",
+        fontSize: 16,
+        fontWeight: "bold",
+      },
+    
 });
 
 export default ExerciseDetailScreen;
