@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import {
   View,
   TouchableOpacity,
@@ -6,57 +6,54 @@ import {
   Modal,
   TextInput,
   FlatList,
+  Button
 } from "react-native";
-import Video from "react-native-video";
+import { Video } from 'expo-av';
 
-const DATA = [
-  {
-    id: "1",
-    name: "Bench Press",
-    muscles: ["Chest", "Triceps"],
-    videoUrl: "https://www.youtube.com/watch?v=gRVjAtPip0Y",
+const DATA = [  {    id: "1",    name: "Bench Press",    muscles: ["Chest", "Triceps"],
+    videoUrl: "http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4",
     description:
-      "The bench press is a chest exercise that targets the pectoral muscles. Begin by lying on the bench with your feet on the ground and your back flat. Hold the bar with an overhand grip and lower it to your chest. Pause for a moment, and then push the bar back up to the starting position.",
+      "The bench press is an exercise that primarily targets the chest, shoulders, and triceps. To perform this exercise, lie flat on a bench and lower the weight to your chest before pushing it back up. Make sure to keep your elbows tucked in and your feet firmly planted on the ground for stability.",
   },
   {
     id: "2",
-    name: "Squat",
-    muscles: ["Quadriceps", "Glutes", "Hamstrings"],
-    videoUrl: "https://www.youtube.com/watch?v=ULT0jl6lwrI",
+    name: "Squats",
+    muscles: ["Legs", "Glutes"],
+    videoUrl: "http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4",
     description:
-      "The squat is a compound exercise that targets the muscles of the lower body. Begin by standing with your feet shoulder-width apart and your toes pointed slightly outward. Hold a barbell on your upper back and lower your body until your thighs are parallel to the ground. Pause for a moment, and then push yourself back up to the starting position.",
+      "Squats are a compound exercise that target the quadriceps, hamstrings, and glutes. To perform this exercise, stand with your feet shoulder-width apart and lower yourself into a seated position. Keep your back straight and your knees behind your toes for proper form.",
   },
   {
     id: "3",
-    name: "Deadlift",
-    muscles: ["Lower Back", "Glutes", "Hamstrings"],
-    videoUrl: "https://www.youtube.com/watch?v=1ZXobuFvFJ8",
+    name: "Deadlifts",
+    muscles: ["Back", "Legs"],
+    videoUrl: "http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4",
     description:
-      "The deadlift is a compound exercise that targets the muscles of the lower back, glutes, and hamstrings. Begin by standing with your feet shoulder-width apart and your toes pointed slightly outward. Bend down and grab the bar with an overhand grip. Lift the bar by straightening your legs and pulling your hips forward. Pause for a moment, and then lower the bar back down to the ground.",
+      "Deadlifts are a compound exercise that primarily target the back, legs, and core. To perform this exercise, stand with your feet shoulder-width apart and grip the barbell with your hands. Lift the weight off the ground by straightening your legs and pulling your shoulders back.",
   },
   {
     id: "4",
-    name: "Pull-up",
-    muscles: ["Back", "Biceps"],
-    videoUrl: "https://www.youtube.com/watch?v=eGo4IYlbE5g",
+    name: "Overhead Press",
+    muscles: ["Shoulders", "Triceps"],
+    videoUrl: "http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4",
     description:
-      "The pull-up is an upper body exercise that targets the back and biceps. Begin by hanging from a bar with your palms facing away from your body. Pull your body up until your chin is above the bar. Pause for a moment, and then lower yourself back down to the starting position.",
+      "The overhead press is an exercise that targets the shoulders and triceps. To perform this exercise, start with the weight at shoulder height and press it up above your head. Keep your core engaged and your elbows tucked in for proper form.",
   },
   {
     id: "5",
-    name: "Push-up",
-    muscles: ["Chest", "Shoulders", "Triceps"],
-    videoUrl: "https://www.youtube.com/watch?v=IODxDxX7oi4",
+    name: "Pull-Ups",
+    muscles: ["Back", "Biceps"],
+    videoUrl: "http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4",
     description:
-      "The push-up is a classic exercise that targets the chest, shoulders, and triceps. Begin by getting into a plank position with your hands slightly wider than shoulder-width apart. Lower your body until your chest nearly touches the ground. Push yourself back up to the starting position.",
+      "Pull-ups are a compound exercise that primarily target the back and biceps. To perform this exercise, grip the bar with your hands shoulder-width apart and pull yourself up until your chin is above the bar. Lower yourself back down with control and repeat.",
   },
   {
     id: "6",
-    name: "Plank",
-    muscles: ["Core"],
-    videoUrl: "https://www.youtube.com/watch?v=pSHjTRCQxIw",
+    name: "Push-Ups",
+    muscles: ["Chest", "Triceps"],
+    videoUrl: "http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4",
     description:
-      "The plank is a core exercise that strengthens the muscles of your abs, back, and hips. Begin by getting into a push-up position, but instead of lowering yourself down, hold your body in a straight line from your head to your heels. Keep your abs and glutes tight, and hold for as long as you can.",
+      "Push-ups are a bodyweight exercise that primarily target the chest and triceps. To perform this exercise, start in a plank position with your hands shoulder-width apart. Lower yourself down until your chest touches the ground and push back up to the starting position.",
   },
 ];
 
@@ -64,6 +61,19 @@ const MyComponent = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
+
+  const videoRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const handlePlayPause = async () => {
+    if (isPlaying) {
+      await videoRef.current.pauseAsync();
+      setIsPlaying(false);
+    } else {
+      await videoRef.current.playAsync();
+      setIsPlaying(true);
+    }
+  };
 
   const handlePress = (item) => {
     setSelectedItem(item);
@@ -112,8 +122,16 @@ const MyComponent = () => {
         <Modal visible={modalVisible} animationType="slide">
           <View style={styles.modalContainer}>
             <Text style={styles.title}>{selectedItem.name}</Text>
+            <Video
+              source={{ uri: selectedItem.videoUrl }}
+              ref={videoRef}
+              style={styles.video}
+              useNativeControls={false}
+              resizeMode="contain"
+              onPlaybackStatusUpdate={(status) => setIsPlaying(status.isPlaying)}
+            />
+            <Button title={isPlaying ? "Pause" : "Play"} onPress={handlePlayPause} />
             <Text style={styles.description}>{selectedItem.description}</Text>
-
             <TouchableOpacity onPress={() => setModalVisible(false)}>
               <Text style={styles.closeButton}>Close</Text>
             </TouchableOpacity>
@@ -165,6 +183,10 @@ const styles = {
     paddingHorizontal: 16,
     marginBottom: 16,
   },
+  video: {
+    width: '100%',
+    height: 300,
+  }
 };
 
 export default MyComponent;
