@@ -97,6 +97,9 @@ export default function WorkoutHome () {
 };
 
 const styles = StyleSheet.create({
+  seeAllText:{
+    color: "#941796",
+  },
   container: {
     flex: 1,
     alignItems: "center",
@@ -156,9 +159,6 @@ const styles = StyleSheet.create({
   },
   topWorkoutsTitle: {
     fontSize: 18,
-  },
-  seeAll: {
-    color: "#941796",
   },
   byTypeContainer: {
     height: 190,
