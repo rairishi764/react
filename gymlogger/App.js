@@ -7,7 +7,7 @@ import WorkoutHome from './Screens/WorkoutHome';
 import LoginScreen from "./Screens/LoginScreen";
 import ProgressScreen from './Screens/ProgressScreen'
 import BottomMenu from './components/BottomMenu'
-
+import ExerciseDetailScreen from "./Screens/ExerciseDetailScreen";
 const Stack = createNativeStackNavigator();
 
 const App = () => {

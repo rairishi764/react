@@ -7,6 +7,7 @@ import WorkoutHome from '../Screens/WorkoutHome';
 import ProgressScreen from '../Screens/ProgressScreen';
 import ProfileScreen from '../Screens/ProfileScreen';
 import CardioScreen from "../Screens/CardioScreen"; 
+import ExerciseDetailScreen from "../Screens/ExerciseDetailScreen";
 const Tab = createMaterialBottomTabNavigator();
 
 const BottomMenu = () => {
@@ -22,8 +23,8 @@ const BottomMenu = () => {
         }}
       />
       <Tab.Screen
-        name="Create"
-        component={CardioScreen}
+        name="Workouts"
+        component={ExerciseDetailScreen}
         options={{
           tabBarIcon: ({ color }) => (
             <Cardio fill={color} width={26} height={26} />
