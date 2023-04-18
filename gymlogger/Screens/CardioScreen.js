@@ -199,14 +199,20 @@ const CardioLogger = () => {
           />
         </View>
 
-        <View style={styles.inputContainer}>
-          <TextInput
-            style={styles.input}
-            mode="outlined"
-            label="Distance (in km)"
+
+        <View style={styles.sliderContainer}>
+          <Text style={styles.sliderText}>Distance: {distance} miles/Km</Text>
+          <Slider
+            style={{ width: "100%" }}
+            minimumValue={0}
+            maximumValue={50}
+            step={1}
             value={distance}
-            onChangeText={(text) => setDistance(text)}
-            keyboardType="numeric"
+            onValueChange={(value) => setDistance(value)}
+            minimumTrackTintColor="#6a2194"
+            maximumTrackTintColor="#f3e8fa"
+            thumbTintColor="#5b1c80"
+            thumbStyle={{ width: 10, height: 25 }}
           />
         </View>
 
