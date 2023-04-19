@@ -1,50 +1,35 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createDrawerNavigator } from "@react-navigation/drawer";
 import CardioLogger from "./Screens/CardioScreen";
 import WeightliftingLogger from "./Screens/WeightsScreen";
-import WorkoutHome from './Screens/WorkoutHome';
 import LoginScreen from "./Screens/LoginScreen";
-import ProgressScreen from './Screens/ProgressScreen'
-import BottomMenu from './components/BottomMenu'
-import ExerciseDetailScreen from "./Screens/ExerciseDetailScreen";
-const Stack = createNativeStackNavigator();
+import ProgressScreen from "./Screens/ProgressScreen";
+import BottomMenu from "./components/BottomMenu";
 
+const Drawer = createDrawerNavigator();
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
-        <Stack.Screen component={BottomMenu} name="Home" />
-        <Stack.Screen
+      <Drawer.Navigator initialRouteName="Login">
+        <Drawer.Screen component={BottomMenu} name="Home" />
+        <Drawer.Screen
           component={Login}
           name="Login"
           options={{ headerShown: false }}
         />
-        <Stack.Screen
-          component={CardioScreen}
-          name="CardioScreen"
-        />
-        <Stack.Screen
-          component={WeightsScreen}
-          name="WeightsScreen"
-        />
+        <Drawer.Screen component={CardioScreen} name="CardioScreen" />
+        <Drawer.Screen component={WeightsScreen} name="WeightsScreen" />
 
-<Stack.Screen
-          component={ProgressScreen}
-          name="ProgressScreen"
-        />
-      </Stack.Navigator>
+        <Drawer.Screen component={ProgressScreen} name="ProgressScreen" />
+      </Drawer.Navigator>
     </NavigationContainer>
   );
 };
 
-
 const Login = () => {
-  return (
-    <LoginScreen></LoginScreen>
-  );
+  return <LoginScreen></LoginScreen>;
 };
-
 
 const CardioScreen = () => {
   return <CardioLogger></CardioLogger>;
