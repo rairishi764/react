@@ -1,11 +1,16 @@
-import React from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, ImageBackground } from 'react-native';
-import Carousel from 'react-native-snap-carousel';
+import React from "react";
+import {
+  StyleSheet,
+  View,
+  Text,
+  TouchableOpacity,
+  ImageBackground,
+} from "react-native";
+import Carousel from "react-native-snap-carousel";
 import { windowWidth } from "../utils/Dimensions";
 import { sliderData } from "../components/data";
 
 const BannerSlider = () => {
- 
   const renderItem = ({ item }) => (
     <TouchableOpacity style={styles.slide}>
       <ImageBackground source={item.image} style={styles.image}>
@@ -23,7 +28,7 @@ const BannerSlider = () => {
       itemWidth={300}
     />
   );
-}
+};
 
 const styles = StyleSheet.create({
   slide: {

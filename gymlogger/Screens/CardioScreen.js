@@ -199,7 +199,6 @@ const CardioLogger = () => {
           />
         </View>
 
-
         <View style={styles.sliderContainer}>
           <Text style={styles.sliderText}>Distance: {distance} miles/Km</Text>
           <Slider

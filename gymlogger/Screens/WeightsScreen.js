@@ -162,7 +162,7 @@ const WeightliftingLogger = () => {
           <View>
             <TouchableOpacity
               style={{
-                width: "90%",
+                width: "100%",
                 height: 50,
                 borderRadius: 10,
                 borderWidth: 0.5,
@@ -202,7 +202,7 @@ const WeightliftingLogger = () => {
                   marginTop: 20,
                   height: 300,
                   alignSelf: "center",
-                  width: "90%",
+                  width: "100%",
                   backgroundColor: "#fff",
                   borderRadius: 10,
                 }}

@@ -3,10 +3,10 @@ import { createMaterialBottomTabNavigator } from "@react-navigation/material-bot
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import Cardio from "../assets/cardio.svg";
 import Weights from "../assets/weights.svg";
-import WorkoutHome from '../Screens/WorkoutHome';
-import ProgressScreen from '../Screens/ProgressScreen';
-import ProfileScreen from '../Screens/ProfileScreen';
-import CardioScreen from "../Screens/CardioScreen"; 
+import WorkoutHome from "../Screens/WorkoutHome";
+import ProgressScreen from "../Screens/ProgressScreen";
+import ProfileScreen from "../Screens/ProfileScreen";
+import CardioScreen from "../Screens/CardioScreen";
 import ExerciseDetailScreen from "../Screens/ExerciseDetailScreen";
 const Tab = createMaterialBottomTabNavigator();
 

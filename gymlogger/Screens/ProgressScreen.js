@@ -6,16 +6,18 @@ import {
   Modal,
   TextInput,
   FlatList,
-  Button
+  Button,
 } from "react-native";
-import { Video } from 'expo-av';
+import { Video } from "expo-av";
 
-const DATA = [  {    id: "1",    name: "Bench Press",    muscles: ["Chest", "Triceps"],
+const DATA = [
+  {
+    id: "1",
+    name: "Bench Press",
+    muscles: ["Chest", "Triceps"],
     videoUrl: "http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4",
-    description:
-      "The bench press is an ",
+    description: "The bench press is an ",
   },
-  
 ];
 
 const MyComponent = () => {
@@ -89,9 +91,14 @@ const MyComponent = () => {
               style={styles.video}
               useNativeControls={false}
               resizeMode="contain"
-              onPlaybackStatusUpdate={(status) => setIsPlaying(status.isPlaying)}
+              onPlaybackStatusUpdate={(status) =>
+                setIsPlaying(status.isPlaying)
+              }
             />
-            <Button title={isPlaying ? "Pause" : "Play"} onPress={handlePlayPause} />
+            <Button
+              title={isPlaying ? "Pause" : "Play"}
+              onPress={handlePlayPause}
+            />
             <Text style={styles.description}>{selectedItem.description}</Text>
             <TouchableOpacity onPress={() => setModalVisible(false)}>
               <Text style={styles.closeButton}>Close</Text>
@@ -145,9 +152,9 @@ const styles = {
     marginBottom: 16,
   },
   video: {
-    width: '100%',
+    width: "100%",
     height: 300,
-  }
+  },
 };
 
 export default MyComponent;

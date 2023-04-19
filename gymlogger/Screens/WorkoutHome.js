@@ -14,7 +14,7 @@ import CardioIcon from "../assets/cardio.svg";
 import { useNavigation } from "@react-navigation/native";
 import BannerSlider from "../components/BannerSlider";
 
-export default function WorkoutHome () {
+export default function WorkoutHome() {
   const [selectedType, setSelectedType] = useState("");
 
   const navigation = useNavigation();
@@ -61,9 +61,7 @@ export default function WorkoutHome () {
         >
           <View style={styles.itemContainer}>
             <TouchableOpacity
-              onPress={() =>
-                handleTypeSelection("Bodyweight", "WeightsScreen")
-              }
+              onPress={() => handleTypeSelection("Bodyweight", "WeightsScreen")}
               style={styles.itemButton}
             >
               <View style={styles.itemButtonContent}>
@@ -94,10 +92,10 @@ export default function WorkoutHome () {
       )}
     </SafeAreaView>
   );
-};
+}
 
 const styles = StyleSheet.create({
-  seeAllText:{
+  seeAllText: {
     color: "#941796",
   },
   container: {
@@ -178,8 +176,8 @@ const styles = StyleSheet.create({
   selectedTypeText: {
     fontSize: 18,
   },
-  topWorkoutsText:{
-    fontWeight:"bold",
+  topWorkoutsText: {
+    fontWeight: "bold",
     fontSize: 20,
-  }
+  },
 });

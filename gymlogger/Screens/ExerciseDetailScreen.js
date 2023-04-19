@@ -6,11 +6,15 @@ import {
   Modal,
   TextInput,
   FlatList,
-  Button
+  Button,
 } from "react-native";
-import { Video } from 'expo-av';
+import { Video } from "expo-av";
 
-const DATA = [  {    id: "1",    name: "Bench Press",    muscles: ["Chest", "Triceps"],
+const DATA = [
+  {
+    id: "1",
+    name: "Bench Press",
+    muscles: ["Chest", "Triceps"],
     videoUrl: "http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4",
     description:
       "The bench press is an exercise that primarily targets the chest, shoulders, and triceps. To perform this exercise, lie flat on a bench and lower the weight to your chest before pushing it back up. Make sure to keep your elbows tucked in and your feet firmly planted on the ground for stability.",
@@ -128,9 +132,14 @@ const MyComponent = () => {
               style={styles.video}
               useNativeControls={true}
               resizeMode="contain"
-              onPlaybackStatusUpdate={(status) => setIsPlaying(status.isPlaying)}
+              onPlaybackStatusUpdate={(status) =>
+                setIsPlaying(status.isPlaying)
+              }
             />
-            <Button title={isPlaying ? "Pause" : "Play"} onPress={handlePlayPause} />
+            <Button
+              title={isPlaying ? "Pause" : "Play"}
+              onPress={handlePlayPause}
+            />
             <Text style={styles.description}>{selectedItem.description}</Text>
             <TouchableOpacity onPress={() => setModalVisible(false)}>
               <Text style={styles.closeButton}>Close</Text>
@@ -184,9 +193,9 @@ const styles = {
     marginBottom: 16,
   },
   video: {
-    width: '100%',
+    width: "100%",
     height: 300,
-  }
+  },
 };
 
 export default MyComponent;
