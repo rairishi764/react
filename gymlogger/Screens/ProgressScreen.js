@@ -8,7 +8,7 @@ export default function ProgressScreen() {
   const [workouts, setWorkouts] = useState([]);
 
   const workoutData = [
-    { date: '2022-04-20', workout: 'Pushups, Situps, Lunges' },
+    { date: '2022-04-19', workout: 'Pushups, Situps, Lunges' },
     { date: '2022-04-21', workout: 'Bench press, Pullups, Squats' },
     { date: '2022-04-22', workout: 'Deadlifts, Shoulder press, Planks' },
     { date: '2022-04-23', workout: 'Cardio, Abs workout' },
