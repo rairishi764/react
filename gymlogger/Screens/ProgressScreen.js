@@ -1,3 +1,115 @@
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, View, Text, Modal, TouchableOpacity, FlatList } from 'react-native';
+import { Calendar } from 'react-native-calendars';
+
+export default function ProgressScreen() {
+  const [selectedDate, setSelectedDate] = useState('');
+  const [modalVisible, setModalVisible] = useState(false);
+  const [workouts, setWorkouts] = useState([]);
+
+  const workoutData = [
+    { date: '2022-04-20', workout: 'Pushups, Situps, Lunges' },
+    { date: '2022-04-21', workout: 'Bench press, Pullups, Squats' },
+    { date: '2022-04-22', workout: 'Deadlifts, Shoulder press, Planks' },
+    { date: '2022-04-23', workout: 'Cardio, Abs workout' },
+    { date: '2022-04-24', workout: 'Rest day' },
+  ];
+
+  useEffect(() => {
+    setWorkouts(workoutData);
+  }, []);
+
+  const onDayPress = (day) => {
+    setSelectedDate(day.dateString);
+    setModalVisible(true);
+  };
+
+  const closeModal = () => {
+    setModalVisible(false);
+  };
+
+  const renderItem = ({ item }) => (
+    <View style={styles.item}>
+      <Text style={styles.title}>{item.workout}</Text>
+    </View>
+  );
+
+  const renderEmptyDate = () => (
+    <View style={styles.emptyDate}>
+      <Text>This day has no workouts</Text>
+    </View>
+  );
+
+  const getMarkedDates = () => {
+    const markedDates = {};
+    workouts.forEach((item) => {
+      markedDates[item.date] = { marked: true };
+    });
+    return markedDates;
+  };
+
+  return (
+    <View style={styles.container}>
+      <Calendar markedDates={getMarkedDates()} onDayPress={onDayPress} />
+      <Modal visible={modalVisible} animationType="slide">
+        <View style={styles.modalContainer}>
+          <TouchableOpacity onPress={closeModal}>
+            <Text style={styles.closeButton}>Close</Text>
+          </TouchableOpacity>
+          <Text style={styles.modalTitle}>Workouts for {selectedDate}</Text>
+          {workouts.some((item) => item.date === selectedDate) ? (
+            <FlatList
+              data={workouts.filter((item) => item.date === selectedDate)}
+              renderItem={renderItem}
+              keyExtractor={(item) => item.date}
+            />
+          ) : (
+            renderEmptyDate()
+          )}
+        </View>
+      </Modal>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+  modalContainer: {
+    flex: 1,
+    backgroundColor: '#fff',
+    paddingTop: 50,
+    paddingHorizontal: 20,
+  },
+  modalTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: 20,
+  },
+  closeButton: {
+    fontSize: 18,
+    color: 'blue',
+    textAlign: 'right',
+    marginVertical: 10,
+  },
+  item: {
+    backgroundColor: '#f9c2ff',
+    padding: 20,
+    marginVertical: 8,
+    marginHorizontal: 16,
+  },
+  title: {
+    fontSize: 16,
+  },
+  emptyDate: {
+    height: 100,
+   
+  }});
+
+/*
 import React, { useState } from "react";
 import { View, Text, Button } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
@@ -103,3 +215,4 @@ const Progress = () => {
 
 export default App;
 
+*/
