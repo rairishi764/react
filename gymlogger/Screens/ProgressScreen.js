@@ -1,160 +1,105 @@
-import React, { useState, useRef } from "react";
-import {
-  View,
-  TouchableOpacity,
-  Text,
-  Modal,
-  TextInput,
-  FlatList,
-  Button,
-} from "react-native";
-import { Video } from "expo-av";
+import React, { useState } from "react";
+import { View, Text, Button } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import * as WebBrowser from "expo-web-browser";
+import * as Google from "expo-auth-session/providers/google";
 
-const DATA = [
-  {
-    id: "1",
-    name: "Bench Press",
-    muscles: ["Chest", "Triceps"],
-    videoUrl: "http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4",
-    description: "The bench press is an ",
-  },
-];
 
-const MyComponent = () => {
-  const [modalVisible, setModalVisible] = useState(false);
-  const [selectedItem, setSelectedItem] = useState(null);
-  const [searchQuery, setSearchQuery] = useState("");
+import CardioLogger from "../Screens/CardioScreen";
+import WeightliftingLogger from "../Screens/WeightsScreen";
+import LoginScreen from "../Screens/LoginScreen";
+import ProgressScreen from "../Screens/ProgressScreen";
+import BottomMenu from "../components/BottomMenu";
 
-  const videoRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(false);
+WebBrowser.maybeCompleteAuthSession();
 
-  const handlePlayPause = async () => {
-    if (isPlaying) {
-      await videoRef.current.pauseAsync();
-      setIsPlaying(false);
-    } else {
-      await videoRef.current.playAsync();
-      setIsPlaying(true);
-    }
-  };
+const Drawer = createDrawerNavigator();
 
-  const handlePress = (item) => {
-    setSelectedItem(item);
-    setModalVisible(true);
-  };
-
-  const renderItem = ({ item }) => (
-    <TouchableOpacity key={item.id} onPress={() => handlePress(item)}>
-      <View style={styles.item}>
-        <Text style={styles.title}>{item.name}</Text>
-        <Text style={styles.description}>
-          {item.description.slice(0, 100)}...
-        </Text>
-      </View>
-    </TouchableOpacity>
-  );
-
-  const handleSearch = (text) => {
-    setSearchQuery(text);
-  };
-
-  const filteredData = DATA.filter((item) => {
-    const muscleMatch = item.muscles.find((muscle) =>
-      muscle.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-    return (
-      item.name.toLowerCase().includes(searchQuery.toLowerCase()) || muscleMatch
-    );
+const App = () => {
+  const [accessToken, setAccessToken] = useState(null);
+  const [user, setUser] = useState(null);
+  const [request, response, promptAsync] = Google.useIdTokenAuthRequest({
+    clientId: "868727694454-gcgf4nf4smv1obp9bk7o2dl5okt2j7sp.apps.googleusercontent.com",
+    iosClientId: "868727694454-l0r3423c5oqpsq30himsd0t8abb6q56r.apps.googleusercontent.com",
+    androidClientId: "868727694454-fo0am3qsflchvdc47klalnj3g571bpoq.apps.googleusercontent.com",
   });
 
+  React.useEffect(() => {
+    if (response?.type === "success") {
+      setAccessToken(response.authentication.accessToken);
+    }
+  }, [response, accessToken]);
+
+  async function fetchUserInfo() {
+    const userInfoResponse = await fetch(
+      "https://www.googleapis.com/userinfo/v2/me",
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      }
+    );
+    const userInfo = await userInfoResponse.json();
+    setUser(userInfo);
+  }
+
+  React.useEffect(() => {
+    if (accessToken) {
+      fetchUserInfo();
+    }
+  }, [accessToken]);
+
+  const ShowUserInfo = () => {
+    if (user) {
+      return (
+        <View>
+          <Text>{user.name}</Text>
+          <Text>{user.email}</Text>
+        </View>
+      );
+    }
+    return null;
+  };
+
   return (
-    <View style={styles.container}>
-      <TextInput
-        style={styles.searchInput}
-        placeholder="Search"
-        onChangeText={handleSearch}
-        value={searchQuery}
-      />
-      <FlatList
-        data={filteredData}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id}
-        contentContainerStyle={styles.listContainer}
-      />
-      {selectedItem && (
-        <Modal visible={modalVisible} animationType="slide">
-          <View style={styles.modalContainer}>
-            <Text style={styles.title}>{selectedItem.name}</Text>
-            <Video
-              source={{ uri: selectedItem.videoUrl }}
-              ref={videoRef}
-              style={styles.video}
-              useNativeControls={false}
-              resizeMode="contain"
-              onPlaybackStatusUpdate={(status) =>
-                setIsPlaying(status.isPlaying)
-              }
-            />
-            <Button
-              title={isPlaying ? "Pause" : "Play"}
-              onPress={handlePlayPause}
-            />
-            <Text style={styles.description}>{selectedItem.description}</Text>
-            <TouchableOpacity onPress={() => setModalVisible(false)}>
-              <Text style={styles.closeButton}>Close</Text>
-            </TouchableOpacity>
-          </View>
-        </Modal>
-      )}
-    </View>
+    <NavigationContainer>
+      <Drawer.Navigator initialRouteName="Login">
+        <Drawer.Screen component={BottomMenu} name="Home" />
+        <Drawer.Screen
+          component={Login}
+          name="Login"
+          options={{ headerShown: false }}
+        />
+        <Drawer.Screen component={CardioScreen} name="CardioScreen" />
+        <Drawer.Screen component={WeightsScreen} name="WeightsScreen" />
+        <Drawer.Screen component={ProgressScreen} name="Progress" />
+      </Drawer.Navigator>
+      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+        <ShowUserInfo />
+        {!accessToken ? (
+          <Button title="Login with Google" onPress={() => promptAsync()} />
+        ) : null}
+      </View>
+    </NavigationContainer>
   );
 };
 
-const styles = {
-  container: {
-    flex: 1,
-    padding: 16,
-  },
-  listContainer: {
-    paddingBottom: 80,
-  },
-  item: {
-    padding: 16,
-    marginBottom: 16,
-    backgroundColor: "#f2f2f2",
-    borderRadius: 8,
-  },
-  title: {
-    fontSize: 18,
-    fontWeight: "bold",
-    marginBottom: 8,
-  },
-  description: {
-    fontSize: 16,
-    marginBottom: 8,
-  },
-  modalContainer: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 16,
-  },
-  closeButton: {
-    fontSize: 18,
-    color: "blue",
-    marginTop: 16,
-  },
-  searchInput: {
-    height: 40,
-    borderWidth: 1,
-    borderRadius: 8,
-    paddingHorizontal: 16,
-    marginBottom: 16,
-  },
-  video: {
-    width: "100%",
-    height: 300,
-  },
+const Login = () => {
+  return <LoginScreen></LoginScreen>;
 };
 
-export default MyComponent;
+const CardioScreen = () => {
+  return <CardioLogger></CardioLogger>;
+};
+
+const WeightsScreen = () => {
+  return <WeightliftingLogger></WeightliftingLogger>;
+};
+
+const Progress = () => {
+  return <ProgressLogger></ProgressLogger>;
+};
+
+export default App;
+
