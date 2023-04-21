@@ -35,9 +35,7 @@ export default function WorkoutHome() {
         />
       </View>
 
-      <View style={styles.searchContainer}>
-        <TextInput placeholder="Search" style={styles.searchInput} />
-      </View>
+      
 
       <View style={styles.topWorkoutsContainer}>
         <Text style={styles.topWorkoutsText}>Top Workouts</Text>
