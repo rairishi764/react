@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     borderRadius: 8,
     paddingHorizontal: 10,
-    paddingVertical: 8,
+    paddingVertical: 2,
     width: "100%",
   },
   userImage: {
@@ -144,19 +144,16 @@ const styles = StyleSheet.create({
     width: "95%",
   },
   topWorkoutsContainer: {
-    marginVertical: 15,
+    marginVertical: 0,
     flexDirection: "row",
     justifyContent: "space-between",
     width: "95%",
   },
-  topWorkoutsTitle: {
-    fontSize: 18,
-  },
   byTypeContainer: {
-    height: 190,
+    height: 290,
   },
   byTypeHeader: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: "bold",
   },
   byTypeScrollView: {
@@ -172,6 +169,6 @@ const styles = StyleSheet.create({
   },
   topWorkoutsText: {
     fontWeight: "bold",
-    fontSize: 20,
+    fontSize: 18,
   },
 });
