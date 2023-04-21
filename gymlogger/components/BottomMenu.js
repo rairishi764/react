@@ -8,6 +8,7 @@ import ProgressScreen from "../Screens/ProgressScreen";
 import ProfileScreen from "../Screens/ProfileScreen";
 import CardioScreen from "../Screens/CardioScreen";
 import ExerciseDetailScreen from "../Screens/ExerciseDetailScreen";
+import TestScreen from '../Screens/TestScreen'
 const Tab = createMaterialBottomTabNavigator();
 
 const BottomMenu = () => {
@@ -37,6 +38,15 @@ const BottomMenu = () => {
         options={{
           tabBarIcon: ({ color }) => (
             <Weights fill={color} width={26} height={26} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Test"
+        component={TestScreen}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <MaterialIcons name="account-box" color={color} size={26} />
           ),
         }}
       />

@@ -24,10 +24,6 @@ export default function WorkoutHome() {
     navigation.navigate(screen, { selectedType: type });
   };
 
-  const renderBanner = (item, index) => {
-    return <BannerSlider data={item} />;
-  };
-
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.greeting}>
@@ -66,7 +62,7 @@ export default function WorkoutHome() {
             >
               <View style={styles.itemButtonContent}>
                 <CardioIcon width={50} height={50} style={styles.itemIcon} />
-                <Text style={styles.itemText}>Bodyweight</Text>
+                <Text style={styles.itemText}>Weights</Text>
               </View>
             </TouchableOpacity>
           </View>
