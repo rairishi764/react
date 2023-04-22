@@ -13,11 +13,12 @@ import {
   Card,
   Divider,
   TextInput,
-  Dropdown,
+  Provider,
 } from "react-native-paper";
 import * as ImagePicker from "expo-image-picker";
 import * as Permissions from "expo-permissions";
 import { Picker } from "@react-native-picker/picker";
+import DropDown from "react-native-paper-dropdown";
 
 export default function ProfileScreen() {
   const [name, setName] = useState("");
@@ -27,6 +28,15 @@ export default function ProfileScreen() {
   const [weightValue, setWeightValue] = useState("110");
   const [feetValue, setFeetValue] = useState("5");
   const [inchesValue, setInchesValue] = useState("9");
+
+  const [showDropDown, setShowDropDown] = useState(false);
+  const [gender, setGender] = useState();
+
+  const genderList = [
+    { label: "Male", value: "male" },
+    { label: "Female", value: "female" },
+    { label: "Others", value: "others" },
+  ];
 
   const handleImagePicker = async () => {
     const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
@@ -75,6 +85,25 @@ export default function ProfileScreen() {
                 />
 
                 <Divider style={styles.divider} />
+
+                <Provider>
+                    <DropDown
+                      label={"Gender"}
+                      mode={"outlined"}
+                      value={gender}
+                      setValue={setGender}
+                      list={genderList}
+                      visible={showDropDown}
+                      showDropDown={() => setShowDropDown(true)}
+                      onDismiss={() => setShowDropDown(false)}
+                      inputProps={{
+                        right: <TextInput.Icon name={"menu-down"}  />,
+                      }}
+                      dropdownOffset={{ top: -80, left: 0 }}
+                      dropdownMargins={{ min: 0, max: 0 }}
+                    />
+                  
+                </Provider>
 
                 <TextInput
                   label="Body Type"
@@ -226,5 +255,10 @@ const styles = StyleSheet.create({
     backgroundColor: "#0080ff",
     borderRadius: 5,
     padding: 10,
+  },
+  containerStyle: {
+    marginHorizontal: 0,
+    marginBottom: 10,
+    padding: 20,
   },
 });
