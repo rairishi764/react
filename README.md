@@ -222,6 +222,12 @@ can use in the function body.
 
 # reactive Native
 sudo npm install  expo-cli  
+
+sudo npx create-expo-app@latest -e with-router
+yarn add nativewind
+yarn add --dev tailwindcss@3.3.2
+
+
 sudo npx create-expo-app workout
 sudo npm start
-$ sudo chown -R username .
+$ sudo chown -R <username> .
