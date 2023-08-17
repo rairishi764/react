@@ -40,7 +40,7 @@ const App = () => {
           name="Login"
           options={{ headerShown: false }}
         />
-        <Drawer.Screen
+      <Drawer.Screen
           component={CardioLogger}
           name="CardioScreen"
           options={{ title: "Cardio" }}
@@ -50,6 +50,7 @@ const App = () => {
           name="WeightsScreen"
           options={{ title: "Weightlifting" }}
         />
+      
         <Drawer.Screen
           component={ProgressScreen}
           name="ProgressScreen"
