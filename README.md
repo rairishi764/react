@@ -235,6 +235,6 @@ $ sudo chown -R <username> .
 sudo npm install nativewind
 sudo npm install --dev tailwindcss@3.3.2
 sudo npm install postcss@8.4.23
-npx tailwindcss init
+sudo npx tailwindcss init
 
 npx tailwindcss init
