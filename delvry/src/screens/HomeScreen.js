@@ -8,7 +8,8 @@ import {
   AdjustmentsHorizontalIcon,
   MagnifyingGlassIcon
 } from "react-native-heroicons/outline"
-import Categories from '../components/categories'
+import Categories from '../components/Categories'
+import FeaturedRow from '../components/FeaturedRow'
 const HomeScreen =() => {
  const navigation = useNavigation();
  {/* for scree header * */}
@@ -51,10 +52,28 @@ const HomeScreen =() => {
   className="bg-gray-100"
   contentContainerStyle={{paddingBottom:100}}>
 {/** Categories */}
-    <Categories>
-    {/** Featured Rows */}
+    <Categories/>
 
-    </Categories>
+  {/** Featured */}    
+    <FeaturedRow
+    id = '3'
+    title = "Featured"
+    description = "Paid placement from partners"
+    featuredCategory="featured"/>
+  
+  {/** Tasty Discount */}    
+  <FeaturedRow
+    id = '1'
+    title = "Tasty Discount"
+    description = "Enjoy discounts"
+    featuredCategory="featured"/>
+
+    {/** Offers near you! */}    
+    <FeaturedRow
+    id = '2'
+    title = "Offers near you!"
+    description = "Enjoy offers near you"
+    featuredCategory="featured"/>
 
 </ScrollView>
 
