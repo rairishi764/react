@@ -237,4 +237,6 @@ sudo npm install --dev tailwindcss@3.3.2
 sudo npm install postcss@8.4.23
 sudo npx tailwindcss init
 
-npx tailwindcss init
+https://reactnavigation.org/docs/getting-started/
+sudo npm install @react-navigation/native
+npx expo install react-native-screens react-native-safe-area-context
