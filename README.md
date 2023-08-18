@@ -240,3 +240,7 @@ sudo npx tailwindcss init
 https://reactnavigation.org/docs/getting-started/
 sudo npm install @react-navigation/native
 npx expo install react-native-screens react-native-safe-area-context
+
+
+
+npm install --global sanity@latest
