@@ -226,8 +226,10 @@ sudo npm install  expo-cli
 sudo npx create-expo-app@latest -e with-router
 yarn add nativewind
 yarn add --dev tailwindcss@3.3.2
+npx tailwindcss init
 
 
 sudo npx create-expo-app workout
 sudo npm start
 $ sudo chown -R <username> .
+npx tailwindcss init
