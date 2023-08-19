@@ -1,6 +1,6 @@
 import { View, Text, Touchable, TouchableOpacity, Image } from 'react-native'
 import { StarIcon, MapPinIcon } from 'react-native-heroicons/solid'
-
+import { urlFor } from '../../ClientSanity'
 import React from 'react'
 
 const Cards = ({
@@ -14,12 +14,13 @@ const Cards = ({
     dislikes,
     long,
     lat
-}) => {
+}) => {  
   return (
     <TouchableOpacity className="bg-white mr-3 shadow">
         <Image
          source={{
-            uri: imgUrl}}
+            uri: urlFor(imgUrl).url()
+        }}
         className="h-36 w-64 rounded-sm"/>
         <View className="px-3 pb-4">
         <Text className="font-bold text-lg pt-2">{title}</Text>
