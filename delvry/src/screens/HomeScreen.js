@@ -1,6 +1,7 @@
 import { Text, View, SafeAreaView, Image, TextInput, ScrollView } from 'react-native'
-import React, { useLayoutEffect } from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 import {useNavigation} from "@react-navigation/native"
+import ClientSanity from '../../ClientSanity'
 import {
   UserIcon,
   ChevronDownIcon,
@@ -10,15 +11,38 @@ import {
 } from "react-native-heroicons/outline"
 import Categories from '../components/Categories'
 import FeaturedRow from '../components/FeaturedRow'
+
+
 const HomeScreen =() => {
  const navigation = useNavigation();
+ const [featuredCategories,setFeaturedCategories] = useState([])
  {/* for scree header * */}
+ // runs when layout is loaded
  useLayoutEffect(() => {
    navigation.setOptions({
     headerShown: false,
    });
 },[]);
 
+//runs when component is loaded 
+useEffect(()=>{
+  ClientSanity.fetch(
+    `*[_type == "featured"] {
+      ...,
+      restaurants[]->{
+        ...,
+        dishes[]->,
+        type->{
+          name
+        }
+      },
+    }`
+  ).then((data) => {
+    setFeaturedCategories(data);
+  });
+},[]);
+
+console.log(featuredCategories)
  return (
       <SafeAreaView className="bg-white pt-5">
         {/* Header */}
