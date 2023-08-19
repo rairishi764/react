@@ -42,7 +42,7 @@ useEffect(()=>{
   });
 },[]);
 
-console.log(featuredCategories)
+//console.log("XXX"+featuredCategories)
  return (
       <SafeAreaView className="bg-white pt-5">
         {/* Header */}
@@ -78,27 +78,16 @@ console.log(featuredCategories)
 {/** Categories */}
     <Categories/>
 
-  {/** Featured */}    
-    <FeaturedRow
-    id = '3'
-    title = "Featured"
-    description = "Paid placement from partners"
-    featuredCategory="featured"/>
-  
-  {/** Tasty Discount */}    
+  {/** Featured */}
+  {featuredCategories?.map(category => (
   <FeaturedRow
-    id = '1'
-    title = "Tasty Discount"
-    description = "Enjoy discounts"
-    featuredCategory="featured"/>
-
-    {/** Offers near you! */}    
-    <FeaturedRow
-    id = '2'
-    title = "Offers near you!"
-    description = "Enjoy offers near you"
-    featuredCategory="featured"/>
-
+    key={category._id}
+    id={category._id}
+    title={category.name}
+    description={category.short_description}
+  />
+))}
+      
 </ScrollView>
 
       </SafeAreaView>
