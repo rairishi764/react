@@ -52,6 +52,7 @@ const [restaurants,setRestaurants] = useState([])
           address={restaurant.address}
           short_description={restaurant.short_description}
           long={restaurant.long}
+          dishes={restaurant.dishes}
           lat={restaurant.lat}/>
 
         ))}

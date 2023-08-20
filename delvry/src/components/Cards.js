@@ -2,6 +2,7 @@ import { View, Text, Touchable, TouchableOpacity, Image } from 'react-native'
 import { StarIcon, MapPinIcon } from 'react-native-heroicons/solid'
 import { urlFor } from '../../ClientSanity'
 import React from 'react'
+import { useNavigation } from '@react-navigation/native'
 
 const Cards = ({
     id,
@@ -11,12 +12,31 @@ const Cards = ({
     genre,
     address,
     short_description,
-    dislikes,
+    dishes,
     long,
     lat
 }) => {  
+
+    const navigation = useNavigation();
+
+
   return (
-    <TouchableOpacity className="bg-white mr-3 shadow">
+    <TouchableOpacity 
+        onPress={()=>{
+            navigation.navigate('CardDetail',{
+                id,
+                imgUrl,
+                title,
+                rating,
+                genre,
+                address,
+                short_description,
+                dishes,
+                long,
+                lat
+                })
+        }}
+        className="bg-white mr-3 shadow">
         <Image
          source={{
             uri: urlFor(imgUrl).url()
