@@ -229,13 +229,18 @@ yarn add --dev tailwindcss@3.3.2
 npx tailwindcss init
 
 
-sudo npx create-expo-app workout
-sudo npm start
-sudo chown -R <username> .
-sudo npm install nativewind
-sudo npm install --dev tailwindcss@3.3.2
-sudo npm install postcss@8.4.23
-sudo npx tailwindcss init
+- sudo npx create-expo-app workout
+- cd <app>
+- npm run android
+- npm run ios
+- npm run web
+
+- sudo npm start
+- sudo chown -R <username> .
+- sudo npm install nativewind
+- sudo npm install --dev tailwindcss@3.3.2
+- sudo npm install postcss@8.4.23
+- sudo npx tailwindcss init
 
 https://reactnavigation.org/docs/getting-started/
 sudo npm install @react-navigation/native
