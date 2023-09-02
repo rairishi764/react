@@ -1,12 +1,16 @@
 import { View, Text, ScrollView, TouchableOpacity, Image } from 'react-native'
-import React, { useLayoutEffect } from 'react'
+import React, { useEffect, useLayoutEffect } from 'react'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import { urlFor } from '../../ClientSanity';
 import { ArrowLeftIcon, StarIcon, MapPinIcon } from 'react-native-heroicons/solid';
 import { ChevronRightIcon, QuestionMarkCircleIcon } from 'react-native-heroicons/outline';
 import DishRow from '../components/DishRow';
+import BasketIcon from '../components/BasketIcon';
+import { setRestaurant } from '../../features/restaurantSlice';
+import {useDispatch} from 'react-redux'
 const CardDetailScreen = () => {
     const navigation = useNavigation();
+    const dispatch = useDispatch();
 
     const {
         params:{
@@ -23,6 +27,20 @@ const CardDetailScreen = () => {
         },
     } = useRoute();
 
+    useEffect(() => {
+        dispatch(setRestaurant({
+            id,
+            imgUrl,
+            title,
+            rating,
+            genre,
+            address,
+            short_description,
+            dishes,
+            long,
+            lat
+        }))
+    })
     useLayoutEffect(() => {
         navigation.setOptions({
             headerShown: false,
@@ -30,6 +48,8 @@ const CardDetailScreen = () => {
     },[]);
 
   return (
+    <>
+    <BasketIcon/>
     <ScrollView>
         <View className="relative">
         <Image
@@ -69,7 +89,7 @@ const CardDetailScreen = () => {
                 <ChevronRightIcon color="#00CCBB"/>
             </TouchableOpacity>
         </View>
-        <View>
+        <View className="pb-36">
             <Text className='px-4 mb-3 font-bold text-xl'>Menu</Text>
             {/** Dish rows */}
             {dishes.map((dish)=>(
@@ -84,6 +104,7 @@ const CardDetailScreen = () => {
             ))}    
         </View>
     </ScrollView>
+    </>
   )
 }
 

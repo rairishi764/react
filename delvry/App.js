@@ -8,6 +8,7 @@ import HomeScreen from './src/screens/HomeScreen';
 import CardDetailScreen from './src/screens/CardDetailScreen';
 import { Provider } from 'react-redux';
 import {store} from "./store"
+import BasketScreen from './src/screens/BasketScreen';
 NativeWindStyleSheet.setOutput({
   default: "native",
 });
@@ -21,6 +22,8 @@ export default function App() {
     <Stack.Navigator>
       <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="CardDetail" component={CardDetailScreen} />
+      <Stack.Screen name="Basket" component={BasketScreen} 
+      options={{presentation:'modal', headerShown: false}}/>
     </Stack.Navigator>
     </Provider>
   </NavigationContainer>
