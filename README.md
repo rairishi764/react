@@ -23,15 +23,21 @@ npx tailwindcss init
 
 - sudo npm start
 - sudo chown -R <username> .
+
+# Tail Wind installation
 - sudo npm install nativewind
 - sudo npm install --dev tailwindcss@3.3.2
 - sudo npm install postcss@8.4.23
 - sudo npx tailwindcss init
 
+Update tailwind.config, App.js and babel.config.js 
+
+
+
 https://reactnavigation.org/docs/getting-started/
 sudo npm install @react-navigation/native
 npx expo install react-native-screens react-native-safe-area-context
-
+npm install @react-navigation/native-stack
 
 
 npm install --global sanity@latest
