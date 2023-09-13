@@ -1,12 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const HomeScreen = () => {
+const FeaturedRow = () => {
   return (
     <View>
-      <Text className='text-red-500'>HomeScreen</Text>
+      <Text>FeaturedRow</Text>
     </View>
   )
 }
 
-export default HomeScreen
+export default FeaturedRow

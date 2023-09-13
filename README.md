@@ -33,11 +33,17 @@ npx tailwindcss init
 Update tailwind.config, App.js and babel.config.js 
 
 
-
+# Navigation
 https://reactnavigation.org/docs/getting-started/
 sudo npm install @react-navigation/native
-npx expo install react-native-screens react-native-safe-area-context
-npm install @react-navigation/native-stack
+sudo npx expo install react-native-screens react-native-safe-area-context
+sudo npm install @react-navigation/native-stack
+
+
+# Icons
+sudo npm i react-native-heroicons
+sudo npm i react-native-svg
+
 
 
 npm install --global sanity@latest
