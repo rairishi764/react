@@ -8,7 +8,7 @@ import {
   MagnifyingGlassIcon
 } from "react-native-heroicons/outline"
 import Categories from '../components/Categories'
-import FeaturedRow from '../components/FeaturedRow copy'
+import FeaturedRow from '../components/FeaturedRow'
 const categories = require('../../assets/appconfig.json');
 
 const HomeScreen =() => {
