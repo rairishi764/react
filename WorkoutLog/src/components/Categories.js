@@ -4,33 +4,7 @@ import CategoryCard from './CategoryCard'; // Import the CategoryCard component
 
 const Categories = () => {
   // Define an array of workout categories
-  const categories = [
-    { id : 1,
-      title: 'Cardiovascular',
-      imgUrl: 'https://images.unsplash.com/photo-1526045612212-70caf35c14df',
-    },
-    {   id : 2,
-        title: 'Strength Training',
-        imgUrl: 'https://images.unsplash.com/photo-1526045612212-70caf35c14df',
-      },{
-        id : 3,
-        title: 'Flexibility and Mobility',
-        imgUrl: 'https://images.unsplash.com/photo-1526045612212-70caf35c14df',
-      },{
-        id : 4,
-        title: 'High-Intensity Interval Training',
-        imgUrl: 'https://images.unsplash.com/photo-1526045612212-70caf35c14df',
-      },{
-        id : 5,
-        title: 'Functional Fitness',
-        imgUrl: 'https://images.unsplash.com/photo-1526045612212-70caf35c14df',
-      },{
-        id : 6,
-        title: 'Outdoor Activities',
-        imgUrl: 'https://images.unsplash.com/photo-1526045612212-70caf35c14df',
-      },
-    // Add more categories as needed
-  ];
+  const categories = require('../../assets/appconfig.json');
 
   return (
 
@@ -46,10 +20,9 @@ const Categories = () => {
       {/* Map through the categories and render a CategoryCard for each */}
       {categories.map((category, index) => (
           <CategoryCard
-            key={index} // Use a unique key for each CategoryCard
+            key = {category.id}
             title={category.title}
             imgUrl={category.imgUrl}
-            id = {category.id}
           />
         ))}
       

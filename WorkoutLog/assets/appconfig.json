@@ -1,0 +1,164 @@
+[
+    {
+      "title": "Cardiovascular",
+      "id":1,
+      "imgUrl": "https://images.unsplash.com/photo-1526045612212-70caf35c14df",
+      "workouttype": [
+        {
+          "id": 1,
+          "title": "Running",
+          "imgUrl": "https://images.unsplash.com/photo-1526045612212-70caf35c14df"
+        },
+        {
+          "id": 2,
+          "title": "Cycling",
+          "imgUrl": "https://images.unsplash.com/photo-1526045612212-70caf35c14df"
+        },
+        {
+          "id": 3,
+          "title": "Swimming",
+          "imgUrl": "https://images.unsplash.com/photo-1526045612212-70caf35c14df"
+        },
+        {
+          "id": 4,
+          "title": "Jump Rope",
+          "imgUrl": "https://images.unsplash.com/photo-1526045612212-70caf35c14df"
+        }
+      ]
+    },
+    {
+      "title": "Strength Training",
+      "id":2,
+      "imgUrl": "https://images.unsplash.com/photo-1526045612212-70caf35c14df",
+      "workouttype": [
+        {
+          "id": 5,
+          "title": "Weightlifting",
+          "imgUrl": "https://images.unsplash.com/photo-1526045612212-70caf35c14df"
+        },
+        {
+          "id": 6,
+          "title": "Bodyweight Exercises",
+          "imgUrl": "https://images.unsplash.com/photo-1526045612212-70caf35c14df"
+        },
+        {
+          "id": 7,
+          "title": "Resistance Bands",
+          "imgUrl": "https://images.unsplash.com/photo-1526045612212-70caf35c14df"
+        },
+        {
+          "id": 8,
+          "title": "Powerlifting",
+          "imgUrl": "https://images.unsplash.com/photo-1526045612212-70caf35c14df"
+        }
+      ]
+    },
+    {
+      "title": "Flexibility and Mobility",
+      "id":3,
+      "imgUrl": "https://images.unsplash.com/photo-1526045612212-70caf35c14df",
+      "workouttype": [
+        {
+          "id": 9,
+          "title": "Yoga",
+          "imgUrl": "https://images.unsplash.com/photo-1526045612212-70caf35c14df"
+        },
+        {
+          "id": 10,
+          "title": "Stretching",
+          "imgUrl": "https://images.unsplash.com/photo-1526045612212-70caf35c14df"
+        },
+        {
+          "id": 11,
+          "title": "Pilates",
+          "imgUrl": "https://images.unsplash.com/photo-1526045612212-70caf35c14df"
+        },
+        {
+          "id": 12,
+          "title": "Foam Rolling",
+          "imgUrl": "https://images.unsplash.com/photo-1526045612212-70caf35c14df"
+        }
+      ]
+    },
+    {
+      "title": "High-Intensity Interval Training",
+      "id":4,
+      "imgUrl": "https://images.unsplash.com/photo-1526045612212-70caf35c14df",
+      "workouttype": [
+        {
+          "id": 13,
+          "title": "Tabata",
+          "imgUrl": "https://images.unsplash.com/photo-1526045612212-70caf35c14df"
+        },
+        {
+          "id": 14,
+          "title": "Circuit Training",
+          "imgUrl": "https://images.unsplash.com/photo-1526045612212-70caf35c14df"
+        },
+        {
+          "id": 15,
+          "title": "Sprint Intervals",
+          "imgUrl": "https://images.unsplash.com/photo-1526045612212-70caf35c14df"
+        },
+        {
+          "id": 16,
+          "title": "CrossFit",
+          "imgUrl": "https://images.unsplash.com/photo-1526045612212-70caf35c14df"
+        }
+      ]
+    },
+    {
+      "title": "Functional Fitness",
+      "id":4,
+      "imgUrl": "https://images.unsplash.com/photo-1526045612212-70caf35c14df",
+      "workouttype": [
+        {
+          "id": 17,
+          "title": "Kettlebell Training",
+          "imgUrl": "https://images.unsplash.com/photo-1526045612212-70caf35c14df"
+        },
+        {
+          "id": 18,
+          "title": "TRX Suspension Training",
+          "imgUrl": "https://images.unsplash.com/photo-1526045612212-70caf35c14df"
+        },
+        {
+          "id": 19,
+          "title": "Battle Ropes",
+          "imgUrl": "https://images.unsplash.com/photo-1526045612212-70caf35c14df"
+        },
+        {
+          "id": 20,
+          "title": "Boxing",
+          "imgUrl": "https://images.unsplash.com/photo-1526045612212-70caf35c14df"
+        }
+      ]
+    },
+    {
+      "title": "Outdoor Activities",
+      "id":5,
+      "imgUrl": "https://images.unsplash.com/photo-1526045612212-70caf35c14df",
+      "workouttype": [
+        {
+          "id": 21,
+          "title": "Hiking",
+          "imgUrl": "https://images.unsplash.com/photo-1526045612212-70caf35c14df"
+        },
+        {
+          "id": 22,
+          "title": "Kayaking",
+          "imgUrl": "https://images.unsplash.com/photo-1526045612212-70caf35c14df"
+        },
+        {
+          "id": 23,
+          "title": "Rock Climbing",
+          "imgUrl": "https://images.unsplash.com/photo-1526045612212-70caf35c14df"
+        },
+        {
+          "id": 24,
+          "title": "Outdoor Yoga",
+          "imgUrl": "https://images.unsplash.com/photo-1526045612212-70caf35c14df"
+        }
+      ]
+    }
+  ]

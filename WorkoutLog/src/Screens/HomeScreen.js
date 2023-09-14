@@ -1,4 +1,4 @@
-import { Text, View, SafeAreaView, Image, TextInput } from 'react-native'
+import { Text, View, SafeAreaView, Image, TextInput,ScrollView } from 'react-native'
 import React, { useLayoutEffect } from 'react'
 import {useNavigation} from "@react-navigation/native"
 import {
@@ -8,6 +8,8 @@ import {
   MagnifyingGlassIcon
 } from "react-native-heroicons/outline"
 import Categories from '../components/Categories'
+import FeaturedRow from '../components/FeaturedRow copy'
+const categories = require('../../assets/appconfig.json');
 
 const HomeScreen =() => {
     const navigation = useNavigation();
@@ -29,8 +31,8 @@ const HomeScreen =() => {
                    className='h-7 w-7 bg-gray-300 p-4 rounded-full'
                />
                <View className="flex-1">
-               <Text className = "font-bold text-gray-400 text-xs">Deliver Now!</Text>
-               <Text className = "font-bold text-xl">Current Location
+               <Text className = "font-bold text-gray-400 text-xs">Get Going!</Text>
+               <Text className = "font-bold text-xl">Rishi
                <ChevronDownIcon size={20} color="#00CCBB" />
                </Text>
                </View>
@@ -49,6 +51,17 @@ const HomeScreen =() => {
    <View>
     <Categories></Categories>
    </View>
+
+   <ScrollView>
+        {/* Display Featured Categories */}
+        {categories.map((category) => (
+          <FeaturedRow key={category.id} category={category} />
+        ))}
+
+        {/* Other content */}
+        {/* ... */}
+      </ScrollView>
+
          </SafeAreaView>
        )
      }
