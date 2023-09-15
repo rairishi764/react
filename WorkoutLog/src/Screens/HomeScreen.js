@@ -9,6 +9,19 @@ import {
 } from "react-native-heroicons/outline"
 import Categories from '../components/Categories'
 import FeaturedRow from '../components/FeaturedRow'
+import { ProgressBar } from 'react-native-progress'// Import the ProgressBar component
+
+// Dummy data for circular progress
+const dailyTargetCalories = 1000; // Replace with your actual daily target
+const caloriesBurnt = 250; // Replace with your actual data
+const dailyTargetMinutes = 60; // Replace with your actual daily target
+const minutesExercised = 45; // Replace with your actual data
+
+// Calculate progress percentages
+const caloriesProgress = caloriesBurnt / dailyTargetCalories;
+const minutesProgress = minutesExercised / dailyTargetMinutes;
+
+
 const categories = require('../../assets/appconfig.json');
 
 const HomeScreen =() => {
@@ -31,8 +44,8 @@ const HomeScreen =() => {
                    className='h-7 w-7 bg-gray-300 p-4 rounded-full'
                />
                <View className="flex-1">
-               <Text className = "font-bold text-gray-400 text-xs">Get Going!</Text>
-               <Text className = "font-bold text-xl">Rishi
+               <Text className = "font-bold text-gray-400 text-xs">Welcome back!</Text>
+               <Text className = "font-bold text-lg">Rishi
                <ChevronDownIcon size={20} color="#00CCBB" />
                </Text>
                </View>
@@ -48,8 +61,10 @@ const HomeScreen =() => {
      <AdjustmentsHorizontalIcon size={35} color="#00CCBB"></AdjustmentsHorizontalIcon>
    </View>
 
+  
+
    <View>
-    <Categories></Categories>
+    {/*<Categories></Categories>*/}
    </View>
 
    <ScrollView>

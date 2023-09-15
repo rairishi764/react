@@ -1,164 +1,329 @@
 [
     {
-        "title": "Cardiovascular",
-        "id": 1,
-        "imgUrl": "https://source.unsplash.com/JVnLqWGWVzs",
-        "workouttype": [
+      "category": "Cardiovascular Workouts",
+      "id": 1,
+      "title": "Cardiovascular Workouts",
+      "imgUrl": "https://source.unsplash.com/JVnLqWGWVzs",
+      "description": "",
+      "subcategories": [
+        {
+          "subcategories": "Cardio",
+          "id": 1,
+          "title": "Cardiovascular Workouts",
+          "imgUrl": "https://source.unsplash.com/JVnLqWGWVzs",
+          "description": "",
+          "subworkouts": [
             {
-                "id": 1,
-                "title": "Running",
-                "imgUrl": "https://source.unsplash.com/L1kltMuEa4g"
+              "title": "Running",
+              "id": 1,
+              "imgUrl": "",
+              "description": ""
             },
             {
-                "id": 2,
-                "title": "Cycling",
-                "imgUrl": "https://source.unsplash.com/RHzh3v9xCUE"
+              "title": "Cycling",
+              "id": 2,
+              "imgUrl": "",
+              "description": ""
             },
             {
-                "id": 3,
-                "title": "Swimming",
-                "imgUrl": "https://source.unsplash.com/JjUyjE-oEbM"
+              "title": "Swimming",
+              "id": 3,
+              "imgUrl": "",
+              "description": ""
             },
             {
-                "id": 4,
-                "title": "Jump Rope",
-                "imgUrl": "https://source.unsplash.com/pCCOhIIGPIA"
+              "title": "Aerobics",
+              "id": 4,
+              "imgUrl": "",
+              "description": ""
             }
-        ]
+          ]
+        }
+      ]
     },
     {
-        "title": "Strength Training",
-        "id": 2,
-        "imgUrl": "https://source.unsplash.com/h4i9G-de7Po",
-        "workouttype": [
+      "category": "Strength Training",
+      "id": 2,
+      "title": "Strength Training",
+      "imgUrl": "https://source.unsplash.com/h4i9G-de7Po",
+      "description": "",
+      "subcategories": [
+        {
+          "subcategory": "Weightlifting",
+          "id": 1,
+          "title": "Weightlifting",
+          "imgUrl": "https://source.unsplash.com/h4i9G-de7Po",
+          "description": "",
+          "subworkouts": [
             {
-                "id": 5,
-                "title": "Weightlifting",
-                "imgUrl": "https://source.unsplash.com/vqDAUejnwKw"
+              "title": "Bench Press",
+              "id": 1,
+              "imgUrl": "",
+              "description": ""
             },
             {
-                "id": 6,
-                "title": "Bodyweight Exercises",
-                "imgUrl": "https://source.unsplash.com/R0y_bEUjiOM"
+              "title": "Squats",
+              "id": 2,
+              "imgUrl": "",
+              "description": ""
             },
             {
-                "id": 7,
-                "title": "Resistance Bands",
-                "imgUrl": "https://source.unsplash.com/oLStrTTMz2s"
+              "title": "Deadlifts",
+              "id": 3,
+              "imgUrl": "",
+              "description": ""
             },
             {
-                "id": 8,
-                "title": "Powerlifting",
-                "imgUrl": "https://source.unsplash.com/YNvJDTUnDtk"
+              "title": "Bicep Curls",
+              "id": 4,
+              "imgUrl": "",
+              "description": ""
             }
-        ]
+          ]
+        },
+        {
+          "subcategory": "Bodyweight Exercises",
+          "id": 2,
+          "title": "Bodyweight Exercises",
+          "imgUrl": "https://source.unsplash.com/R0y_bEUjiOM",
+          "description": "",
+          "subworkouts": [
+            {
+              "title": "Push-Ups",
+              "id": 5,
+              "imgUrl": "",
+              "description": ""
+            },
+            {
+              "title": "Pull-Ups",
+              "id": 6,
+              "imgUrl": "",
+              "description": ""
+            },
+            {
+              "title": "Lunges",
+              "id": 7,
+              "imgUrl": "",
+              "description": ""
+            },
+            {
+              "title": "Planks",
+              "id": 8,
+              "imgUrl": "",
+              "description": ""
+            }
+          ]
+        },
+        {
+          "subcategory": "Resistance Band Workouts",
+          "id": 3,
+          "title": "Resistance Band Workouts",
+          "imgUrl": "https://source.unsplash.com/oLStrTTMz2s",
+          "description": "",
+          "subworkouts": [
+            {
+              "title": "Band Rows",
+              "id": 9,
+              "imgUrl": "",
+              "description": ""
+            },
+            {
+              "title": "Band Squats",
+              "id": 10,
+              "imgUrl": "",
+              "description": ""
+            },
+            {
+              "title": "Band Bicep Curls",
+              "id": 11,
+              "imgUrl": "",
+              "description": ""
+            },
+            {
+              "title": "Band Leg Raises",
+              "id": 12,
+              "imgUrl": "",
+              "description": ""
+            }
+          ]
+        }
+      ]
     },
     {
-        "title": "Flexibility and Mobility",
-        "id": 3,
-        "imgUrl": "https://source.unsplash.com/l5ilSNeT92Y",
-        "workouttype": [
+      "category": "Flexibility and Mobility",
+      "id": 3,
+      "title": "Flexibility and Mobility",
+      "imgUrl": "https://source.unsplash.com/l5ilSNeT92Y",
+      "description": "",
+      "subcategories": [
+        {
+          "subcategory": "Yoga",
+          "id": 1,
+          "title": "Yoga",
+          "imgUrl": "https://source.unsplash.com/F2qh3yjz6Jk",
+          "description": "",
+          "subworkouts": [
             {
-                "id": 9,
-                "title": "Yoga",
-                "imgUrl": "https://source.unsplash.com/F2qh3yjz6Jk"
+              "title": "Hatha Yoga",
+              "id": 1,
+              "imgUrl": "",
+              "description": ""
             },
             {
-                "id": 10,
-                "title": "Stretching",
-                "imgUrl": "https://source.unsplash.com/dZW-IiWXFek"
+              "title": "Vinyasa Yoga",
+              "id": 2,
+              "imgUrl": "",
+              "description": ""
             },
             {
-                "id": 11,
-                "title": "Pilates",
-                "imgUrl": "https://source.unsplash.com/2xjZKgTe-54"
+              "title": "Bikram Yoga",
+              "id": 3,
+              "imgUrl": "",
+              "description": ""
             },
             {
-                "id": 12,
-                "title": "Foam Rolling",
-                "imgUrl": "https://source.unsplash.com/JVnLqWGWVzs"
+              "title": "Ashtanga Yoga",
+              "id": 4,
+              "imgUrl": "",
+              "description": ""
             }
-        ]
+          ]
+        },
+        {
+          "subcategory": "Pilates",
+          "id": 2,
+          "title": "Pilates",
+          "imgUrl": "https://source.unsplash.com/2xjZKgTe-54",
+          "description": "",
+          "subworkouts": [
+            {
+              "title": "Mat Pilates",
+              "id": 5,
+              "imgUrl": "https://source.unsplash.com/2xjZKgTe-54",
+              "description": ""
+            },
+            {
+              "title": "Reformer Pilates",
+              "id": 6,
+              "imgUrl": "",
+              "description": ""
+            },
+            {
+              "title": "Cadillac Pilates",
+              "id": 7,
+              "imgUrl": "",
+              "description": ""
+            },
+            {
+              "title": "Chair Pilates",
+              "id": 8,
+              "imgUrl": "",
+              "description": ""
+            }
+          ]
+        },
+        {
+          "subcategory": "Stretching Routines",
+          "id": 3,
+          "title": "Stretching Routines",
+          "imgUrl": "https://source.unsplash.com/dZW-IiWXFek",
+          "description": "",
+          "subworkouts": [
+            {
+              "title": "Static Stretching",
+              "id": 9,
+              "imgUrl": "https://source.unsplash.com/dZW-IiWXFek",
+              "description": ""
+            },
+            {
+              "title": "Dynamic Stretching",
+              "id": 10,
+              "imgUrl": "",
+              "description": ""
+            },
+            {
+              "title": "PNF Stretching",
+              "id": 11,
+              "imgUrl": "",
+              "description": ""
+            }
+          ]
+        },
+        {
+          "subcategory": "Tai Chi",
+          "id": 4,
+          "title": "Tai Chi",
+          "imgUrl": "https://source.unsplash.com/2xjZKgTe-54",
+          "description": "",
+          "subworkouts": [
+            {
+              "title": "Yang Style Tai Chi",
+              "id": 12,
+              "imgUrl": "",
+              "description": ""
+            },
+            {
+              "title": "Chen Style Tai Chi",
+              "id": 13,
+              "imgUrl": "",
+              "description": ""
+            },
+            {
+              "title": "Wu Style Tai Chi",
+              "id": 14,
+              "imgUrl": "",
+              "description": ""
+            },
+            {
+              "title": "Sun Style Tai Chi",
+              "id": 15,
+              "imgUrl": "",
+              "description": ""
+            }
+          ]
+        }
+      ]
     },
     {
-        "title": "High-Intensity Interval Training",
-        "id": 4,
-        "imgUrl": "https://source.unsplash.com/WiKEnlt6Z3U",
-        "workouttype": [
+      "category": "High-Intensity Interval Training (HIIT)",
+      "id": 4,
+      "title": "High-Intensity Interval Training (HIIT)",
+      "imgUrl": "https://source.unsplash.com/WiKEnlt6Z3U",
+      "description": "",
+      "subcategories": [
+        {
+          "subcategory": "HIIT Workouts",
+          "id": 1,
+          "title": "HIIT Workouts",
+          "imgUrl": "https://source.unsplash.com/WiKEnlt6Z3U",
+          "description": "",
+          "subworkouts": [
             {
-                "id": 13,
-                "title": "Tabata",
-                "imgUrl": "https://source.unsplash.com/JVnLqWGWVzs"
+              "title": "Tabata",
+              "id": 1,
+              "imgUrl": "",
+              "description": ""
             },
             {
-                "id": 14,
-                "title": "Circuit Training",
-                "imgUrl": "https://source.unsplash.com/x5YEuFeASH8"
+              "title": "EMOM (Every Minute on the Minute)",
+              "id": 2,
+              "imgUrl": "",
+              "description": ""
             },
             {
-                "id": 15,
-                "title": "Sprint Intervals",
-                "imgUrl": "https://source.unsplash.com/X3huptykYH0"
+              "title": "AMRAP (As Many Rounds as Possible)",
+              "id": 3,
+              "imgUrl": "",
+              "description": ""
             },
             {
-                "id": 16,
-                "title": "CrossFit",
-                "imgUrl": "https://source.unsplash.com/0Wra5YYVQJE"
+              "title": "Circuit Training",
+              "id": 4,
+              "imgUrl": "",
+              "description": ""
             }
-        ]
-    },
-    {
-        "title": "Functional Fitness",
-        "id": 4,
-        "imgUrl": "https://source.unsplash.com/3jAN9InapQI",
-        "workouttype": [
-            {
-                "id": 17,
-                "title": "Kettlebell Training",
-                "imgUrl": "https://source.unsplash.com/MXIY-MmZ4Fw"
-            },
-            {
-                "id": 18,
-                "title": "TRX Suspension Training",
-                "imgUrl": "https://source.unsplash.com/tF4yjpT-AMQ"
-            },
-            {
-                "id": 19,
-                "title": "Battle Ropes",
-                "imgUrl": "https://source.unsplash.com/yiQCexXTXJI"
-            },
-            {
-                "id": 20,
-                "title": "Boxing",
-                "imgUrl": "https://source.unsplash.com/4dw1lwI0bBE"
-            }
-        ]
-    },
-    {
-        "title": "Outdoor Activities",
-        "id": 5,
-        "imgUrl": "https://source.unsplash.com/WI8phMvAEMI",
-        "workouttype": [
-            {
-                "id": 21,
-                "title": "Hiking",
-                "imgUrl": "https://source.unsplash.com/Yizrl9N_eDA"
-            },
-            {
-                "id": 22,
-                "title": "Kayaking",
-                "imgUrl": "https://source.unsplash.com/zK049OFP4uI"
-            },
-            {
-                "id": 23,
-                "title": "Rock Climbing",
-                "imgUrl": "https://source.unsplash.com/3yusFdVTtQ8"
-            },
-            {
-                "id": 24,
-                "title": "Outdoor Yoga",
-                "imgUrl": "https://source.unsplash.com/GvF7RkA-E9Q"
-            }
-        ]
+          ]
+        }
+      ]
     }
-]
+  ]

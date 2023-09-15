@@ -3,7 +3,7 @@ import { View, Text, ScrollView, Image } from 'react-native';
 import Cards from './Cards';
 
 const FeaturedRow = ({ category }) => {
-  const [workoutTypes, setWorkoutTypes] = useState(category.workouttype);
+  const [workoutTypes, setWorkoutTypes] = useState(category.subcategories);
 
   return (
     <View>
