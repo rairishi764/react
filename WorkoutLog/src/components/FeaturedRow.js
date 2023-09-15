@@ -3,7 +3,7 @@ import { View, Text, ScrollView, Image } from 'react-native';
 import Cards from './Cards';
 
 const FeaturedRow = ({ category }) => {
-  const [workoutTypes, setWorkoutTypes] = useState(category.subcategories);
+  const [subcategories, setSubcategories] = useState(category.subcategories);
 
   return (
     <View>
@@ -19,12 +19,9 @@ const FeaturedRow = ({ category }) => {
         }}
         showsHorizontalScrollIndicator={false}
         style={{ paddingTop: 10 }}>
-        {workoutTypes.map((workoutType) => (
+        {subcategories.map((subCategory) => (
           <Cards
-            key={workoutType.id}
-            id={workoutType.id}
-            imgUrl={workoutType.imgUrl}
-            title={workoutType.title}
+            subCategory={subCategory}
             // Add other props if needed
           />
         ))}
