@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Image } from 'react-native';
 import DropDownPicker from 'react-native-custom-dropdown';
 
 const CardDetailScreen = ({ route }) => {
@@ -13,7 +13,8 @@ const CardDetailScreen = ({ route }) => {
       setWorkoutData(
         subCategory.subworkouts.map((workout) => ({
           value: workout.id,
-          label: workout.title
+          label: workout.title,
+          imageUrl: workout.imgUrl 
         }))
       );
     }
@@ -21,6 +22,16 @@ const CardDetailScreen = ({ route }) => {
 
   return (
     <View className='flex-1 p-4'>
+      {selectedWorkout && (
+        <View>
+          {/* Display the selected workout image */}
+          <Image
+            source={{ uri: selectedWorkout.imageUrl }}
+            style={{ width: 200, height: 200, marginBottom: 16 }}
+          />
+        </View>
+      )}
+
       <Text className='p-5 text-black'>{selectedWorkout ? selectedWorkout.label : 'Select a workout'}</Text>
       {workoutData.length > 0 && (
         <DropDownPicker

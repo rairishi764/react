@@ -16,7 +16,7 @@
             {
               "title": "Running",
               "id": 1,
-              "imgUrl": "",
+              "imgUrl": "../../assets/videos/video.mp4",
               "description": ""
             },
             {
@@ -28,7 +28,7 @@
             {
               "title": "Swimming",
               "id": 3,
-              "imgUrl": "",
+              "imgUrl": "https://source.unsplash.com/JVnLqWGWVzs",
               "description": ""
             },
             {
