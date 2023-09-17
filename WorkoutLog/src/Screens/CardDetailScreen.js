@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, Image } from 'react-native';
 import DropDownPicker from 'react-native-custom-dropdown';
-
+import { Video } from "expo-av";
+import YoutubePlayer from 'react-native-youtube-iframe';
 const CardDetailScreen = ({ route }) => {
   const { subCategory } = route.params;
 
   const [workoutData, setWorkoutData] = useState([]);
   const [selectedWorkout, setSelectedWorkout] = useState(null); // Start with no selection
+  const [isPlaying, setIsPlaying] = useState(false); // Define isPlaying state
 
   useEffect(() => {
     if (subCategory && subCategory.subworkouts) {
@@ -14,21 +16,25 @@ const CardDetailScreen = ({ route }) => {
         subCategory.subworkouts.map((workout) => ({
           value: workout.id,
           label: workout.title,
-          imageUrl: workout.imgUrl 
+          imageUrl: workout.imgUrl,
+          videoId: workout.videoId
         }))
       );
     }
   }, [subCategory]);
 
   return (
-    <View className='flex-1 p-4'>
+    <View className='flex-1 p-0'>
       {selectedWorkout && (
         <View>
           {/* Display the selected workout image */}
-          <Image
-            source={{ uri: selectedWorkout.imageUrl }}
-            style={{ width: 200, height: 200, marginBottom: 16 }}
-          />
+         <View>
+        <YoutubePlayer
+          height={220}
+          play={false}
+          videoId={selectedWorkout.videoId}
+        />
+    </View>
         </View>
       )}
 

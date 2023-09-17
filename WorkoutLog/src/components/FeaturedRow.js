@@ -22,6 +22,7 @@ const FeaturedRow = ({ category }) => {
         {subcategories.map((subCategory) => (
           <Cards
             subCategory={subCategory}
+            key= {subCategory.id}
             // Add other props if needed
           />
         ))}
