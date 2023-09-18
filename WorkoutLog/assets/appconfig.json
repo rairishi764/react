@@ -19,6 +19,7 @@
               "id": 2,
               "imgUrl": "../../assets/videos/video.mp4",
               "videoId":"rlzQf9mZDKg",
+              "measure":"time",
               "description": ""
             },
             {
@@ -26,6 +27,7 @@
               "id": 3,
               "imgUrl": "../../assets/videos/video.mp4",
               "videoId":"D983ZkdcOPk",
+              "measure":"time",
               "description": ""
             },
             {
@@ -33,6 +35,7 @@
               "id": 4,
               "imgUrl": "../../assets/videos/video.mp4",
               "videoId":"s2h0tFWwqFc",
+              "measure":"time",
               "description": ""
             },
             {
@@ -40,6 +43,7 @@
               "id": 5,
               "imgUrl": "",
               "videoId":"rlzQf9mZDKg",
+              "measure":"time",
               "description": ""
             }
           ]
@@ -64,24 +68,28 @@
               "title": "Bench Press",
               "id": 8,
               "imgUrl": "",
+              "measure":"weight",
               "description": ""
             },
             {
               "title": "Squats",
               "id": 9,
               "imgUrl": "",
+              "measure":"weight",
               "description": ""
             },
             {
               "title": "Deadlifts",
               "id": 10,
               "imgUrl": "",
+              "measure":"weight",
               "description": ""
             },
             {
               "title": "Bicep Curls",
               "id": 11,
               "imgUrl": "",
+              "measure":"weight",
               "description": ""
             }
           ]
