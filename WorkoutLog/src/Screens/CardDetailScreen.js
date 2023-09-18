@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, Image } from 'react-native';
 import DropDownPicker from 'react-native-custom-dropdown';
 import Slider from 'react-native-slider'; // Import Slider
-import { Video } from "expo-av";
 import YoutubePlayer from 'react-native-youtube-iframe';
 
 const CardDetailScreen = ({ route }) => {
@@ -64,23 +63,31 @@ const CardDetailScreen = ({ route }) => {
 
       {/* Slider for setting time */}
       <Text>Set Time (minutes): {time} mins</Text>
-      <Slider
-        value={time}
-        onValueChange={(value) => setTime(value)}
-        minimumValue={1}
-        maximumValue={60}
-        step={1}
-      />
+<Slider
+  value={time}
+  onValueChange={(value) => setTime(value)}
+  minimumValue={1}
+  maximumValue={300}
+  step={1}
+  minimumTrackTintColor="#00CCBB" // Change the color of the slider track
+  thumbTintColor="#00CCBB" // Change the color of the slider thumb
+  style={{ marginTop: 10 }} // Add custom styles to the slider track
+  thumbStyle={{ borderWidth: 2, borderColor: '#00CCBB' }} // Add custom styles to the slider thumb
+/>
 
-      {/* Slider for setting kilometers */}
-      <Text>Set Kilometers: {kilometers} km</Text>
-      <Slider
-        value={kilometers}
-        onValueChange={(value) => setKilometers(value)}
-        minimumValue={1}
-        maximumValue={10}
-        step={0.5}
-      />
+{/* Slider for setting kilometers */}
+<Text>Set Kilometers: {kilometers} km</Text>
+<Slider
+  value={kilometers}
+  onValueChange={(value) => setKilometers(value)}
+  minimumValue={0}
+  maximumValue={30}
+  step={0.2}
+  minimumTrackTintColor="#00CCBB" // Change the color of the slider track
+  thumbTintColor="#00CCBB" // Change the color of the slider thumb
+  style={{ marginTop: 10 }} // Add custom styles to the slider track
+  thumbStyle={{ borderWidth: 2, borderColor: '#00CCBB' }} // Add custom styles to the slider thumb
+/>
     </View>
   );
 };
