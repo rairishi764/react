@@ -6,6 +6,7 @@ import HomeScreen from "./src/screens/HomeScreen";
 import CardDetailScreen from "./src/screens/CardDetailScreen";
 import ProgressScreen from "./src/screens/ProgressScreen";
 import StartupScreen from "./src/screens/StartupScreen";
+import ProfileScreen from "./src/screens/ProfileScreen";
 NativeWindStyleSheet.setOutput({
   default: "native",
 });
@@ -22,6 +23,7 @@ export default function App() {
       <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="CardDetail" component={CardDetailScreen} />
       <Stack.Screen name="ProgressScreen" component={ProgressScreen} />
+      <Stack.Screen name="Profile" component={ProfileScreen} />
     </Stack.Navigator>
   </NavigationContainer>
   );

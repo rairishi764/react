@@ -10,7 +10,6 @@ import {
 } from "react-native-heroicons/outline"
 import Categories from '../components/Categories'
 import FeaturedRow from '../components/FeaturedRow'
-import { ProgressBar } from 'react-native-progress'// Import the ProgressBar component
 
 // Dummy data for circular progress
 const dailyTargetCalories = 1000; // Replace with your actual daily target
@@ -37,7 +36,13 @@ const HomeScreen =() => {
     return (
          <SafeAreaView className="bg-white pt-5">
            {/* Header */}
+           <TouchableOpacity
+      onPress={() => {
+        // Navigate to card detail screen with the provided data
+        navigation.navigate('Profile');
+      }}>
            <View className ="flex-row pb-3 items-center mx-4 space-x-2 px-4">
+            
                <Image
                    source={{
                        uri : "https://links.papareact.com/wru"
@@ -52,6 +57,7 @@ const HomeScreen =() => {
                </View>
                <UserIcon size={35} color="#528265" />
            </View>
+           </TouchableOpacity>
    
    {/* Search */}
    <View className="flex-row item-center space-x-2 pb-2 mx-4 px-1">
