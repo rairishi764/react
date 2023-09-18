@@ -86,7 +86,7 @@ const HomeScreen =() => {
     </TouchableOpacity>
    </View>
 
-   <ScrollView>
+   <ScrollView className="" contentContainerStyle={{paddingBottom:250}}>
         {/* Display Featured Categories */}
         {categories.map((category) => (
           <FeaturedRow key={category.id} category={category} />
