@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons'; // You can use any icon library you prefer
 
 const ProgressScreen = () => {
-  const [selectedTab, setSelectedTab] = useState('daily');
+  const [selectedTab, setSelectedTab] = useState('weekly');
 
+  // Sample daily, weekly, and monthly progress data
   const dailyProgressData = [
     { date: '2023-09-18', workout: 'Cardio' },
     { date: '2023-09-17', workout: 'Strength Training' },
@@ -12,15 +13,27 @@ const ProgressScreen = () => {
   ];
 
   const weeklyProgressData = [
-    { week: 'Week 3', workoutMinutes: 150 },
-    { week: 'Week 2', workoutMinutes: 120 },
+    {
+      week: 'Week 3',
+      startDate: '2023-09-18',
+      endDate: '2023-09-24',
+      workouts: [
+        { date: '2023-09-18', day: 'Monday', workout: 'Cardio' },
+        { date: '2023-09-19', day: 'Tuesday', workout: 'Strength Training' },
+        // Add more workout details for the week
+      ],
+    },
+    {
+      week: 'Week 2',
+      startDate: '2023-09-11',
+      endDate: '2023-09-17',
+      workouts: [
+        { date: '2023-09-11', day: 'Monday', workout: 'Cardio' },
+        { date: '2023-09-12', day: 'Tuesday', workout: 'Strength Training' },
+        // Add more workout details for the week
+      ],
+    },
     // Add more weekly progress data as needed
-  ];
-
-  const monthlyProgressData = [
-    { month: 'September 2023', workoutCount: 20 },
-    { month: 'August 2023', workoutCount: 18 },
-    // Add more monthly progress data as needed
   ];
 
   const renderTabContent = () => {
@@ -35,20 +48,25 @@ const ProgressScreen = () => {
         );
       case 'weekly':
         return (
-          <View>
-            <Text style={styles.sectionHeader}>Weekly Progress</Text>
-            {weeklyProgressData.map((item, index) => (
-              <Text key={index}>{item.week}: {item.workoutMinutes} minutes</Text>
+          <ScrollView>
+            {weeklyProgressData.map((weekData, index) => (
+              <View key={index} className="mb-4 border-b border-gray-200">
+                <Text className="text-2xl font-bold mb-2">{weekData.week}</Text>
+                {weekData.workouts.map((workout, workoutIndex) => (
+                  <View key={workoutIndex} className="flex-row justify-between items-center mb-2">
+                    <Text className="text-base">{workout.date}</Text>
+                    <Text className="text-base">{workout.day}</Text>
+                    <Text className="text-base flex-1 text-right">{workout.workout}</Text>
+                  </View>
+                ))}
+              </View>
             ))}
-          </View>
+          </ScrollView>
         );
       case 'monthly':
         return (
           <View>
-            <Text style={styles.sectionHeader}>Monthly Progress</Text>
-            {monthlyProgressData.map((item, index) => (
-              <Text key={index}>{item.month}: {item.workoutCount} workouts</Text>
-            ))}
+            {/* Monthly progress data rendering */}
           </View>
         );
       default:
@@ -57,75 +75,33 @@ const ProgressScreen = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.headerText}>Fitness Progress</Text>
-      </View>
-
-      <View style={styles.tabButtons}>
+    <View className="flex-1 bg-white">
+      <View className="flex-row justify-around py-2">
         <TouchableOpacity
-          style={[styles.tabButton, selectedTab === 'daily' && styles.selectedTabButton]}
+          className={`py-2 px-4 ${selectedTab === 'daily' ? 'border-b-2 border-blue-500' : ''}`}
           onPress={() => setSelectedTab('daily')}
         >
-          <Text>Daily</Text>
+          <Text className="text-base font-semibold">Daily</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={[styles.tabButton, selectedTab === 'weekly' && styles.selectedTabButton]}
+          className={`py-2 px-4 ${selectedTab === 'weekly' ? 'border-b-2 border-blue-500' : ''}`}
           onPress={() => setSelectedTab('weekly')}
         >
-          <Text>Weekly</Text>
+          <Text className="text-base font-semibold">Weekly</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={[styles.tabButton, selectedTab === 'monthly' && styles.selectedTabButton]}
+          className={`py-2 px-4 ${selectedTab === 'monthly' ? 'border-b-2 border-blue-500' : ''}`}
           onPress={() => setSelectedTab('monthly')}
         >
-          <Text>Monthly</Text>
+          <Text className="text-base font-semibold">Monthly</Text>
         </TouchableOpacity>
       </View>
 
-      <View style={styles.tabContent}>
+      <View className="p-4">
         {renderTabContent()}
       </View>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'white',
-  },
-  header: {
-    paddingVertical: 20,
-    borderBottomWidth: 1,
-    borderBottomColor: 'lightgray',
-  },
-  headerText: {
-    fontSize: 24,
-    fontWeight: 'bold',
-  },
-  tabButtons: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    paddingVertical: 10,
-  },
-  tabButton: {
-    paddingVertical: 5,
-  },
-  selectedTabButton: {
-    borderBottomWidth: 2,
-    borderBottomColor: 'dodgerblue',
-  },
-  tabContent: {
-    flex: 1,
-    paddingHorizontal: 16,
-    paddingBottom: 20,
-  },
-  sectionHeader: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginBottom: 10,
-  },
-});
 
 export default ProgressScreen;
