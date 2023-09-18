@@ -15,8 +15,8 @@ const CardDetailScreen = ({ route }) => {
   const [weight, setWeight] = useState(0); // Initialize weight
   const [reps, setReps] = useState(0); // Initialize reps
   const [sets, setSets] = useState(0); // Initialize sets
-  const [distance, setDistance] = useState(0); // Initialize distance for time-based workouts
-
+  const [weights, setWeights] = useState([]); // Initialize weights array for each set
+  
   useEffect(() => {
     if (subCategory && subCategory.subworkouts) {
       setWorkoutData(
@@ -34,9 +34,9 @@ const CardDetailScreen = ({ route }) => {
   useEffect(() => {
     // Reset the values of weight, reps, sets, and distance when the selected workout changes
     setWeight(0);
-    setReps(0);
+    setReps([]);
     setSets(0);
-    setDistance(0);
+    setWeights([]);
   }, [selectedWorkout]);
 
   return (
@@ -92,20 +92,6 @@ const CardDetailScreen = ({ route }) => {
             style={{ marginTop: 10 }} // Add custom styles to the slider track
             thumbStyle={{ borderWidth: 2, borderColor: '#00CCBB' }} // Add custom styles to the slider thumb
           />
-
-          {/* Slider for setting distance */}
-          <Text>Set Distance (km): {distance} km</Text>
-          <Slider
-            value={distance}
-            onValueChange={(value) => setDistance(value)}
-            minimumValue={0}
-            maximumValue={30}
-            step={0.1}
-            minimumTrackTintColor="#00CCBB" // Change the color of the slider track
-            thumbTintColor="#00CCBB" // Change the color of the slider thumb
-            style={{ marginTop: 10 }} // Add custom styles to the slider track
-            thumbStyle={{ borderWidth: 2, borderColor: '#00CCBB' }} // Add custom styles to the slider thumb
-          />
         </View>
       )}
 
@@ -125,25 +111,16 @@ const CardDetailScreen = ({ route }) => {
             thumbStyle={{ borderWidth: 2, borderColor: '#00CCBB' }} // Add custom styles to the slider thumb
           />
 
-          {/* Slider for setting reps */}
-          <Text>Set Reps: {reps}</Text>
-          <Slider
-            value={reps}
-            onValueChange={(value) => setReps(value)}
-            minimumValue={0}
-            maximumValue={20}
-            step={1}
-            minimumTrackTintColor="#00CCBB" // Change the color of the slider track
-            thumbTintColor="#00CCBB" // Change the color of the slider thumb
-            style={{ marginTop: 10 }} // Add custom styles to the slider track
-            thumbStyle={{ borderWidth: 2, borderColor: '#00CCBB' }} // Add custom styles to the slider thumb
-          />
-
           {/* Slider for setting sets */}
           <Text>Set Sets: {sets}</Text>
           <Slider
             value={sets}
-            onValueChange={(value) => setSets(value)}
+            onValueChange={(value) => {
+              setSets(value);
+              // Initialize reps and weights arrays with the same length as sets
+              setReps(new Array(Math.floor(value)).fill(0));
+              setWeights(new Array(Math.floor(value)).fill(0));
+            }}
             minimumValue={0}
             maximumValue={10}
             step={1}
@@ -152,6 +129,51 @@ const CardDetailScreen = ({ route }) => {
             style={{ marginTop: 10 }} // Add custom styles to the slider track
             thumbStyle={{ borderWidth: 2, borderColor: '#00CCBB' }} // Add custom styles to the slider thumb
           />
+
+          {/* Generate dynamic sliders for reps and weights based on sets */}
+          {Array.from({ length: sets }, (_, index) => (
+            <View key={index}>
+              {/* Slider for setting reps */}
+              <Text>Set Reps (Set {index + 1}): {reps[index]}</Text>
+              <Slider
+                value={reps[index]}
+                onValueChange={(value) => {
+                  setReps((prevReps) => {
+                    const newReps = [...prevReps];
+                    newReps[index] = value;
+                    return newReps;
+                  });
+                }}
+                minimumValue={0}
+                maximumValue={20}
+                step={1}
+                minimumTrackTintColor="#00CCBB" // Change the color of the slider track
+                thumbTintColor="#00CCBB" // Change the color of the slider thumb
+                style={{ marginTop: 10 }} // Add custom styles to the slider track
+                thumbStyle={{ borderWidth: 2, borderColor: '#00CCBB' }} // Add custom styles to the slider thumb
+              />
+
+              {/* Slider for setting weights */}
+              <Text>Set Weight (Set {index + 1}): {weights[index]} kg</Text>
+              <Slider
+                value={weights[index]}
+                onValueChange={(value) => {
+                  setWeights((prevWeights) => {
+                    const newWeights = [...prevWeights];
+                    newWeights[index] = value;
+                    return newWeights;
+                  });
+                }}
+                minimumValue={0}
+                maximumValue={100}
+                step={0.5}
+                minimumTrackTintColor="#00CCBB" // Change the color of the slider track
+                thumbTintColor="#00CCBB" // Change the color of the slider thumb
+                style={{ marginTop: 10 }} // Add custom styles to the slider track
+                thumbStyle={{ borderWidth: 2, borderColor: '#00CCBB' }} // Add custom styles to the slider thumb
+              />
+            </View>
+          ))}
         </View>
       )}
     </View>
