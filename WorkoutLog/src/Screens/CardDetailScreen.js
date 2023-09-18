@@ -6,7 +6,6 @@ import YoutubePlayer from 'react-native-youtube-iframe';
 
 const CardDetailScreen = ({ route }) => {
   const { subCategory } = route.params;
-
   const [workoutData, setWorkoutData] = useState([]);
   const [selectedWorkout, setSelectedWorkout] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);

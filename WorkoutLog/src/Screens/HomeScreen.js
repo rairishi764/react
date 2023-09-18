@@ -47,10 +47,10 @@ const HomeScreen =() => {
                <View className="flex-1">
                <Text className = "font-bold text-gray-400 text-xs">Welcome back!</Text>
                <Text className = "font-bold text-lg">Rishi
-               <ChevronDownIcon size={20} color="#00CCBB" />
+               <ChevronDownIcon size={20} color="#528265" />
                </Text>
                </View>
-               <UserIcon size={35} color="#00CCBB" />
+               <UserIcon size={35} color="#528265" />
            </View>
    
    {/* Search */}
@@ -59,7 +59,7 @@ const HomeScreen =() => {
      <MagnifyingGlassIcon size={20} color="gray" />
       <TextInput placeholder="Workouts" keyboardType="default"></TextInput> 
      </View>
-     <AdjustmentsHorizontalIcon size={35} color="#00CCBB"></AdjustmentsHorizontalIcon>
+     <AdjustmentsHorizontalIcon size={35} color="#528265"></AdjustmentsHorizontalIcon>
    </View>
 
   
@@ -76,7 +76,7 @@ const HomeScreen =() => {
             percent={30}
             radius={40}
             borderWidth={8}
-            color="#3399FF"
+            color="#528265"
             shadowColor="#999"
             bgColor="#fff"
         >
