@@ -7,7 +7,7 @@ const StartupScreen = ({ navigation }) => {
     // Simulate some startup tasks or data loading
     setTimeout(() => {
       // After your startup tasks, navigate to the main screen or login screen
-      navigation.navigate('Main'); // Replace 'Main' with your main screen's name
+      navigation.navigate('Home'); // Replace 'Main' with your main screen's name
     }, 2000); // Simulate a 2-second delay, you can adjust as needed
   }, []);
 
