@@ -8,7 +8,7 @@ const FeaturedRow = ({ category }) => {
   return (
     <View>
       <View style={{ marginTop: 10, flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 10 }}>
-        <Text style={{ fontWeight: 'bold', fontSize: 18 }}>{category.title}</Text>
+        <Text style={{ fontWeight: 'bold', fontSize: 18, color:'#528265' }}>{category.title}</Text>
         {/* Your arrow icon */}
       </View>
       <Text style={{ fontSize: 12, color: 'gray', paddingHorizontal: 10 }}>{category.description}</Text>

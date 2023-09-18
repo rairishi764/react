@@ -15,7 +15,7 @@ const Cards = ({subCategory}) => {
       style={{ backgroundColor: 'white', marginRight: 10, shadowColor: 'black', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.2, shadowRadius: 2 }}>
       <Image source={{ uri: subCategory.imgUrl }} style={{ height: 120, width: 200, borderRadius: 5 }} />
       <View style={{ paddingHorizontal: 10, paddingBottom: 10 }}>
-        <Text style={{ fontWeight: 'bold', fontSize: 16, paddingTop: 10 }}>{subCategory.title}</Text>
+        <Text style={{ fontSize: 14, paddingTop: 10, color:'#528265'}}>{subCategory.title}</Text>
         <View style={{ flexDirection: 'row', alignItems: 'center', paddingTop: 5 }}>
           {/*<StarIcon color="green" opacity={0.5} size={22} />
           <Text style={{ fontSize: 12, color: 'gray' }}>
