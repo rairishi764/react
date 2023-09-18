@@ -8,12 +8,13 @@ const ProfileScreen = () => {
   const [dateOfBirth, setDateOfBirth] = useState(null); // Use null to indicate no date selected
   const [sex, setSex] = useState(null); // Use null to indicate no sex selected
   const [height, setHeight] = useState('');
+  const [weight, setWeight] = useState('');
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
   const [isFormValid, setIsFormValid] = useState(false); // Track form validity
 
   // Validation function to check if all fields are filled
   const validateForm = () => {
-    if (name.trim() !== '' && dateOfBirth && sex && height.trim() !== '') {
+    if (name.trim() !== '' && dateOfBirth && sex && height.trim() !== '' && weight.trim() !== '') {
       setIsFormValid(true);
     } else {
       setIsFormValid(false);
@@ -45,7 +46,8 @@ const ProfileScreen = () => {
     console.log('Date of Birth:', dateOfBirth);
     console.log('Sex:', sex);
     console.log('Height:', height);
-
+    console.log('Weight:', weight);
+    //navigation.navigate('Home'); 
     // You can also navigate to the next screen or perform any other actions here
   };
 
@@ -65,7 +67,7 @@ const ProfileScreen = () => {
 
       <View style={styles.inputContainer}>
         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-          <Button title="Select Date of birth" onPress={showDatePicker} className='' />
+          <Button title="Select Date of birth" onPress={showDatePicker} className='text-s' />
           {dateOfBirth && (
             <Text>{dateOfBirth}</Text>
           )}
@@ -96,6 +98,8 @@ const ProfileScreen = () => {
             inputIOS: {
               backgroundColor: 'white',
               height: 40, // Set the height to match the text box height
+              borderWidth:0.5,
+              padding:10
             },
             inputAndroid: {
               backgroundColor: 'white',
@@ -118,6 +122,19 @@ const ProfileScreen = () => {
         />
       </View>
 
+      <View style={styles.inputContainer}>
+        <TextInput
+          style={[styles.input, { backgroundColor: 'white' }]}
+          placeholder="Weight in lbs"
+          keyboardType="numeric"
+          value={weight}
+          onChangeText={(text) => {
+            setWeight(text);
+            validateForm(); // Call validation on input change
+          }}
+        />
+      </View>
+
       <Button
         title="Save Profile"
         onPress={handleSaveProfile}
@@ -131,6 +148,8 @@ const ProfileScreen = () => {
     container: {
       flex: 1,
       padding: 20,
+      backgroundColor: 'white', margin: 20, shadowColor: 'black', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.2, shadowRadius: 4
+
     },
     header: {
       fontSize: 24,
