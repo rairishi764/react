@@ -1,6 +1,7 @@
-import { Text, View, SafeAreaView, Image, TextInput,ScrollView } from 'react-native'
+import { Text, View, SafeAreaView, Image, TextInput,ScrollView, TouchableOpacity } from 'react-native'
 import React, { useLayoutEffect } from 'react'
 import {useNavigation} from "@react-navigation/native"
+import ProgressCircle from 'react-native-progress-circle'
 import {
   UserIcon,
   ChevronDownIcon,
@@ -65,6 +66,24 @@ const HomeScreen =() => {
 
    <View>
     {/*<Categories></Categories>*/}
+    <TouchableOpacity
+      onPress={() => {
+        // Navigate to card detail screen with the provided data
+        navigation.navigate('ProgressScreen');
+      }}>
+    <View className="border-spacing-3 p-4 bg-slate-50" style={{ margin: 15, shadowColor: 'black', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.2, shadowRadius: 2 }}>
+    <ProgressCircle
+            percent={30}
+            radius={40}
+            borderWidth={8}
+            color="#3399FF"
+            shadowColor="#999"
+            bgColor="#fff"
+        >
+            <Text style={{ fontSize: 15 }}>{'30%'}</Text>
+        </ProgressCircle>
+    </View>
+    </TouchableOpacity>
    </View>
 
    <ScrollView>
@@ -76,7 +95,6 @@ const HomeScreen =() => {
         {/* Other content */}
         {/* ... */}
       </ScrollView>
-
          </SafeAreaView>
        )
      }
