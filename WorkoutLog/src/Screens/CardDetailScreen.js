@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, ScrollView } from 'react-native';
 import DropDownPicker from 'react-native-custom-dropdown';
 import Slider from 'react-native-slider'; // Import Slider
 import YoutubePlayer from 'react-native-youtube-iframe';
@@ -39,7 +39,9 @@ const CardDetailScreen = ({ route }) => {
   }, [selectedWorkout]);
 
   return (
-    <View className='flex-1 p-4'>
+    <ScrollView>
+    <View className='flex-1 p-4 m-2 shadow-lg bg-white rounded-lg mb-11'>
+      
       {selectedWorkout && (
         <View>
           {/* Display the selected workout image */}
@@ -175,7 +177,9 @@ const CardDetailScreen = ({ route }) => {
           ))}
         </View>
       )}
+      
     </View>
+    </ScrollView>
   );
 };
 
