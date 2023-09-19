@@ -10,7 +10,7 @@ const CardDetailScreen = ({ route }) => {
   const [selectedWorkout, setSelectedWorkout] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [time, setTime] = useState(30); // Initialize time with 30 minutes
-  const [kilometers, setKilometers] = useState(5); // Initialize kilometers with 5 km
+  const [distance, setDistance] = useState(5); // Initialize kilometers with 5 km
   const [weight, setWeight] = useState(0); // Initialize weight
   const [reps, setReps] = useState(0); // Initialize reps
   const [sets, setSets] = useState(0); // Initialize sets
@@ -85,6 +85,19 @@ const CardDetailScreen = ({ route }) => {
           <Slider
             value={time}
             onValueChange={(value) => setTime(value)}
+            minimumValue={1}
+            maximumValue={300}
+            step={1}
+            minimumTrackTintColor="#00CCBB" // Change the color of the slider track
+            thumbTintColor="#00CCBB" // Change the color of the slider thumb
+            style={{ marginTop: 10 }} // Add custom styles to the slider track
+            thumbStyle={{ borderWidth: 2, borderColor: '#00CCBB' }} // Add custom styles to the slider thumb
+          />
+
+        <Text>Set Distance: {distance} miles</Text>
+          <Slider
+            value={distance}
+            onValueChange={(value) => setDistance(value)}
             minimumValue={1}
             maximumValue={300}
             step={1}
