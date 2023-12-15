@@ -1,6 +1,5 @@
 # react
 sudo npx create-react-app gym-log
-
 sudo npm install --save @react-native-google-signin/google-signin
 
 
@@ -8,7 +7,6 @@ sudo npm install --save @react-native-google-signin/google-signin
 
 # reactive Native
 sudo npm install  expo-cli  
-
 sudo npx create-expo-app@latest -e with-router
 yarn add nativewind
 yarn add --dev tailwindcss@3.3.2
