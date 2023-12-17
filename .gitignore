@@ -4,3 +4,5 @@ notes
 *.xlsx
 ios
 android
+sync.config.js
+pulsefit/sync.config.js

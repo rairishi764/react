@@ -8,15 +8,27 @@
 
 import Realm, {BSON} from 'realm';
 
-// To use a class as a Realm object type in Typescript with the `@realm/babel-plugin` plugin,
+// To use a class as a Realm object type in TypeScript with the `@realm/babel-plugin` plugin,
 // simply define the properties on the class with the correct type and the plugin will convert
 // it to a Realm schema automatically.
+
+// Define a class named 'Task' that extends Realm.Object
 export class Task extends Realm.Object {
+  // Define a property '_id' with type 'BSON.ObjectId' and initialize it with a new BSON ObjectId
   _id: BSON.ObjectId = new BSON.ObjectId();
+
+  // Define a required property 'description' with type 'string'
   description!: string;
+
+  // Define a property 'isComplete' with type 'boolean' and initialize it with 'false'
   isComplete: boolean = false;
+
+  // Define a property 'createdAt' with type 'Date' and initialize it with the current date
   createdAt: Date = new Date();
+
+  // Define a required property 'userId' with type 'string'
   userId!: string;
 
+  // Define a static property 'primaryKey' with the value '_id'
   static primaryKey = '_id';
 }
