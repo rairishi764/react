@@ -11,6 +11,11 @@
     },
     "ios": {
       "bundleIdentifier": "com.sindabad764.pulsefit"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "81bb6bb9-89a8-49b3-a10f-fd215192887d"
+      }
     }
   }
 }
