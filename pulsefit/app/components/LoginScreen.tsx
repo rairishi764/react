@@ -4,7 +4,7 @@ import colors from '../styles/colors';
 import {shadows} from '../styles/shadows';
 import {buttonStyles} from '../styles/button';
 import {AuthOperationName, useAuth, useEmailPasswordAuth} from '@realm/react';
-
+import { LogInWithGoogle } from './LoginWithGoogle';
 export const LoginScreen = () => {
   const {result, logInWithEmailPassword} = useAuth();
   const {register} = useEmailPasswordAuth();
@@ -74,6 +74,10 @@ export const LoginScreen = () => {
           disabled={result.pending}>
           <Text style={buttonStyles.text}>Register</Text>
         </Pressable>
+
+
+         {/* Include LogInWithGoogle component */}
+      <LogInWithGoogle />
       </View>
     </View>
   );
