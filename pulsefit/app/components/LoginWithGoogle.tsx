@@ -11,6 +11,7 @@ export const LogInWithGoogle = () => {
   const [userInfo, setUserInfo] = useState(null);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const { logInWithGoogle, result } = useAuth();
 
   const [request, response, promptAsync] = Google.useAuthRequest({
     androidClientId: 'YOUR_ANDROID_CLIENT_ID',
@@ -21,6 +22,8 @@ export const LogInWithGoogle = () => {
   useEffect(() => {
     if (response?.type === 'success') {
       setAccessToken(response.authentication.accessToken);
+      logInWithGoogle({idToken: response.authentication.idToken});
+      
     } else if (response?.type === 'error') {
       setError(response.error);
     }
