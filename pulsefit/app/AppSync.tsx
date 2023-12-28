@@ -59,10 +59,10 @@ export const AppSync: React.FC = () => {
         setShowDone={setShowDone}
         showDone={showDone}
       />
-
+      
       {/* Pressable button to log out the user */}
       <Pressable style={styles.authButton} onPress={logOut}>
-        <Text style={styles.authButtonText}>{`Logout ${user?.profile.email}`}</Text>
+        <Text style={styles.authButtonText}>{`Logout ${user?.profile.email} ${global.user}`}</Text>
       </Pressable>
 
       {/* Render the OfflineModeButton component */}
