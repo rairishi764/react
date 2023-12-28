@@ -55,14 +55,14 @@ export const AppSync: React.FC = () => {
       {/* Render the TaskManager component to manage and display tasks */}
       <TaskManager
         tasks={tasks}
-        userId={user?.id}
+        userId={global.user?.id}
         setShowDone={setShowDone}
         showDone={showDone}
       />
       
       {/* Pressable button to log out the user */}
       <Pressable style={styles.authButton} onPress={logOut}>
-        <Text style={styles.authButtonText}>{`Logout ${user?.profile.email} ${global.user}`}</Text>
+        <Text style={styles.authButtonText}>{`Logout ${global.user?.email}`}</Text>
       </Pressable>
 
       {/* Render the OfflineModeButton component */}
