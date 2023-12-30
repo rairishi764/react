@@ -1,25 +1,27 @@
-import React, {useEffect, useState} from 'react';
-import {View, Text, StyleSheet, TextInput, Pressable} from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, Text, StyleSheet, TextInput, Pressable, Image } from 'react-native';
 import colors from '../styles/colors';
 import { shadows } from '../styles/shadows';
-import {buttonStyles } from '../styles/button';
-import {AuthOperationName, useAuth, useEmailPasswordAuth} from '@realm/react';
+import { buttonStyles } from '../styles/button';
+import { AuthOperationName, useAuth, useEmailPasswordAuth } from '@realm/react';
 import { LogInWithGoogle } from './LoginWithGoogle';
+
+
 export const LoginScreen = () => {
-  const {result, logInWithEmailPassword} = useAuth();
-  const {register} = useEmailPasswordAuth();
+  const { result, logInWithEmailPassword } = useAuth();
+  const { register } = useEmailPasswordAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  // Automatically log in after registration
   useEffect(() => {
     if (result.success && result.operation === AuthOperationName.Register) {
-      logInWithEmailPassword({email, password});
+      logInWithEmailPassword({ email, password });
     }
   }, [result, logInWithEmailPassword, email, password]);
 
   return (
     <View style={styles.content}>
+      
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.input}
@@ -58,14 +60,14 @@ export const LoginScreen = () => {
 
       <View style={styles.buttons}>
         <Pressable
-          onPress={() => logInWithEmailPassword({email, password})}
+          onPress={() => logInWithEmailPassword({ email, password })}
           style={[styles.button, result.pending && styles.buttonDisabled]}
           disabled={result.pending}>
           <Text style={buttonStyles.text}>Login</Text>
         </Pressable>
 
         <Pressable
-          onPress={() => register({email, password})}
+          onPress={() => register({ email, password })}
           style={[
             styles.button,
             result.pending && styles.buttonDisabled,
@@ -74,13 +76,8 @@ export const LoginScreen = () => {
           disabled={result.pending}>
           <Text style={buttonStyles.text}>Register</Text>
         </Pressable>
-
-
-         {/* Include LogInWithGoogle component */}
-     
       </View>
-      <LogInWithGoogle />
-      
+      <LogInWithGoogle/>
     </View>
   );
 };
@@ -90,7 +87,14 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: colors.darkBlue,
+    backgroundColor: '',
+  },
+
+  logo: {
+    width: 100, // Adjust the width as needed
+    height: 100, // Adjust the height as needed
+    resizeMode: 'contain', // Adjust the resizeMode as needed
+    marginBottom: 20, // Adjust the margin as needed
   },
 
   inputContainer: {
