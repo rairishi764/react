@@ -55,9 +55,7 @@ export const LogInWithGoogle = () => {
       });
       // Parse the response as JSON
       let userData = await userInfoResponse.json();
-      // Update user information in state and global variable
       setUserInfo(userData);
-      global.user = userData;
     } catch (error) {
       // Handle errors during user data fetching
       console.error('Error fetching user data:', error);
