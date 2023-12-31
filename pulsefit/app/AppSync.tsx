@@ -1,25 +1,20 @@
 // Import React library for building React components
 import React, { useEffect, useState } from 'react';
-
 // Import Realm React hooks for interacting with Realm, such as useApp, useAuth, useQuery, useRealm, and useUser
 import { useApp, useAuth, useQuery, useRealm, useUser } from '@realm/react';
-
 // Import React Native components and styles
 import { Pressable, StyleSheet, Text } from 'react-native';
-
 // Import the Task model
 import { Task } from './models/Task';
-
 // Import the TaskManager and OfflineModeButton components
 import { TaskManager } from './components/TaskManager';
 import { OfflineModeButton } from './components/OfflineModeButton';
-
 // Import buttonStyles and shadows from the 'styles' folder, and colors from 'styles/colors'
 import { buttonStyles } from './styles/button';
 import { shadows } from './styles/shadows';
 import colors from './styles/colors';
-
 // Define a functional component named AppSync
+
 export const AppSync: React.FC = () => {
   // Access Realm, user, app, and authentication functions using Realm React hooks
   const realm = useRealm();
@@ -29,7 +24,7 @@ export const AppSync: React.FC = () => {
 
   // State to manage whether to show completed tasks
   const [showDone, setShowDone] = useState(false);
-
+  
   // Query tasks based on the showDone state
   const tasks = useQuery(
     Task,
