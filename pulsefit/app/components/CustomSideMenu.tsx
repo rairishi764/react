@@ -1,65 +1,51 @@
+// CustomSidebarMenu.tsx
+
 import React from 'react';
-import {
-    SafeAreaView,
-    View,
-    StyleSheet,
-    Image,
-    Text,
-    Linking,
-} from 'react-native';
-import {
-    DrawerContentScrollView,
-    DrawerItemList,
-    DrawerItem,
-} from '@react-navigation/drawer';
+import { SafeAreaView, View, StyleSheet, Image, Text, Linking, Pressable } from 'react-native';
+import { DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navigation/drawer';
+import { useAuth } from '@realm/react';
 
 const CustomSidebarMenu = (props) => {
-    const BASE_PATH =
-        '../assets/logo/logo-color.png';
+  const { logOut } = useAuth();
 
-    return (
-        <SafeAreaView style={{ flex: 1 }}>
-            <View style={{ marginTop: 40, }}>
-                <Image
-                    source={{ uri: BASE_PATH }}
-                    style={styles.sideMenuProfileIcon}
-                />
-            </View>
-            <DrawerContentScrollView {...props}>
-                <DrawerItemList {...props}  />
-                
-                <DrawerItem
-                    label="Cardiovascular"
-                    onPress={() => Linking.openURL('https://www.nicesnippets.com/')}
-                />
-                <View style={styles.customItem}>
-                    <Text
-                        onPress={() => {
-                            Linking.openURL('https://www.nicesnippets.com/');
-                        }}
-                    >
-                        Rate Us
-                    </Text>
-                </View>
-                <View>
-                    
-                </View>
-            </DrawerContentScrollView>
-        </SafeAreaView>
-    );
-}
+  return (
+    <SafeAreaView style={{ flex: 1 }}>
+      <View style={{ marginTop: 40 }}>
+      </View>
+      <DrawerContentScrollView {...props}>
+        <DrawerItemList {...props} />
+        <DrawerItem
+          label="Visit Us"
+          onPress={() => Linking.openURL('https://www.nicesnippets.com/')}
+        />
+        <DrawerItem
+          label="Sign out"
+          onPress={logOut}
+        />
+      </DrawerContentScrollView>
+    </SafeAreaView>
+  );
+};
 
 const styles = StyleSheet.create({
-    sideMenuProfileIcon: {
-        resizeMode: 'contain',
-        width: '95%',
-        height: 60,
-    },
-    customItem: {
-        padding: 16,
-        flexDirection: 'row',
-        alignItems: 'center',
-    },
+  sideMenuProfileIcon: {
+    resizeMode: 'contain',
+    width: '95%',
+    height: 60,
+  },
+  customItem: {
+    padding: 16,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  logoutButton: {
+    backgroundColor: "purpleDark",
+    padding: 16,
+    alignItems: 'center',
+  },
+  logoutButtonText: {
+    color: 'white', // You can use your existing text styles here
+  },
 });
 
 export default CustomSidebarMenu;
