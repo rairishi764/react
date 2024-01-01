@@ -15,7 +15,7 @@ import {
 
 const CustomSidebarMenu = (props) => {
     const BASE_PATH =
-        'https://www.nicesnippets.com/image/nice-logo.png';
+        '../assets/logo/logo-color.png';
 
     return (
         <SafeAreaView style={{ flex: 1 }}>
@@ -27,8 +27,9 @@ const CustomSidebarMenu = (props) => {
             </View>
             <DrawerContentScrollView {...props}>
                 <DrawerItemList {...props}  />
+                
                 <DrawerItem
-                    label="Visit Us"
+                    label="Cardiovascular"
                     onPress={() => Linking.openURL('https://www.nicesnippets.com/')}
                 />
                 <View style={styles.customItem}>
