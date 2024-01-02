@@ -10,7 +10,9 @@ import Progress from './components/screens/Progress';
 import { buttonStyles } from './styles/button';
 import { shadows } from './styles/shadows';
 import colors from './styles/colors';
-
+import CardioLogger from './components/screens/CardioScreen';
+import WeightliftingLogger from './components/screens/WeightsScreen';
+import ProgressScreen from './components/screens/ProgressScreen';
 const Drawer = createDrawerNavigator();
 
 export const AppSync: React.FC = () => {
@@ -29,10 +31,10 @@ export const AppSync: React.FC = () => {
             </>
           )}
         </Drawer.Screen>
-        <Drawer.Screen name="Progress" component={Progress} />
-        <Drawer.Screen name="Cardiovascular" component={Progress} />
-        <Drawer.Screen name="Weight" component={Progress} />
-      </Drawer.Navigator>
+        <Drawer.Screen name="Progress" component={ProgressScreen} />
+        <Drawer.Screen name="Cardiovascular" component={CardioLogger} />
+        <Drawer.Screen name="Weight" component={WeightliftingLogger} />
+        </Drawer.Navigator>
     </NavigationContainer>
   );
 };
