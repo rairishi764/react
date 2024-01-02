@@ -13,6 +13,7 @@ import colors from './styles/colors';
 import CardioLogger from './components/screens/CardioScreen';
 import WeightliftingLogger from './components/screens/WeightsScreen';
 import ProgressScreen from './components/screens/ProgressScreen';
+import Home from './components/screens/Home';
 const Drawer = createDrawerNavigator();
 
 export const AppSync: React.FC = () => {
@@ -26,14 +27,13 @@ export const AppSync: React.FC = () => {
       >
         <Drawer.Screen name="Home">
           {() => (
-            <>
-            
-            </>
+            <Home/>
           )}
         </Drawer.Screen>
         <Drawer.Screen name="Progress" component={ProgressScreen} />
         <Drawer.Screen name="Cardiovascular" component={CardioLogger} />
         <Drawer.Screen name="Weight" component={WeightliftingLogger} />
+        
         </Drawer.Navigator>
     </NavigationContainer>
   );

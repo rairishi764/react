@@ -263,7 +263,7 @@ const WeightliftingLogger = () => {
             <Slider
               style={{ marginTop: 10 }}
               minimumValue={1}
-              maximumValue={10}
+              maximumValue={8}
               step={1}
               value={sets}
               onValueChange={(value) => setSets(value)}

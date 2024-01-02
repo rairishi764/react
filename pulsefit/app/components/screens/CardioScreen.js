@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -17,7 +17,7 @@ const CardioLogger = () => {
   const navigation = useNavigation();
   const route = useRoute();
 
-  const [duration, setDuration] = useState("");
+  const [duration, setDuration] = useState(0);
   const [distance, setDistance] = useState("");
   const [cardioType, setCardioType] = useState("");
 
@@ -47,6 +47,28 @@ const CardioLogger = () => {
   const [data, setData] = useState(cardioWorkoutType);
   const [selectedCardioWorkout, setSelectedCardioWorkout] = useState("");
   const searchRef = useRef();
+
+  const [timerRunning, setTimerRunning] = useState(false);
+
+  useEffect(() => {
+    let interval;
+    if (timerRunning) {
+      interval = setInterval(() => {
+        setDuration((prevDuration) => prevDuration + 1);
+      }, 1000);
+    } else {
+      clearInterval(interval);
+    }
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [timerRunning]);
+
+  const handleToggleTimer = () => {
+    setTimerRunning((prevTimerRunning) => !prevTimerRunning);
+  };
+
   const onSearch = (search) => {
     if (search !== "") {
       let tempData = data.filter((item) => {
@@ -68,8 +90,9 @@ const CardioLogger = () => {
     });
 
     // Clear the input fields and cardio type
-    setDuration("");
+    setDuration(0);
     setDistance("");
+    setTimerRunning(false);
   };
 
   return (
@@ -183,12 +206,12 @@ const CardioLogger = () => {
         </View>
 
         <View style={styles.sliderContainer}>
-          <Text style={styles.sliderText}>Duration: {duration} minutes</Text>
+          <Text style={styles.sliderText}>Duration: {duration} seconds</Text>
           <Slider
             style={{ width: "100%" }}
             minimumValue={0}
-            maximumValue={120}
-            step={5}
+            maximumValue={3600}
+            step={1}
             value={duration}
             onValueChange={(value) => setDuration(value)}
             minimumTrackTintColor="#6a2194"
@@ -214,16 +237,30 @@ const CardioLogger = () => {
           />
         </View>
 
-        <Button
-          style={styles.saveButton}
-          icon="content-save"
-          mode="contained"
-          onPress={handleSave}
-          disabled={!duration || !distance || !selectedCardioWorkout}
-        >
-          Save
-        </Button>
-      </View>
+        <View style={styles.timerContainer}>
+        <Text style={styles.timerText}>
+              Timer: {moment.utc(duration * 1000).format("mm:ss")}
+            </Text>
+            <Button
+              style={styles.timerButton}
+              icon={timerRunning ? "pause" : "play"}
+              mode="contained"
+              onPress={handleToggleTimer}
+            >
+              {timerRunning ? "Pause" : "Start"}
+            </Button>
+          </View>
+
+          <Button
+            style={styles.saveButton}
+            icon="content-save"
+            mode="contained"
+            onPress={handleSave}
+            disabled={!duration || !distance || !selectedCardioWorkout}
+          >
+            Save
+          </Button>
+        </View>
     </SafeAreaView>
   );
 };
@@ -232,13 +269,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    padding: 35,
-  },
-  inputContainer: {
-    marginBottom: 16,
-  },
-  input: {
-    marginBottom: 8,
   },
   cardioTypesContainer: {
     flexDirection: "row",
@@ -246,24 +276,27 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: 16,
   },
-  cardioTypeText: {
-    textAlign: "center",
-    fontSize: 12,
-    color: "#999",
+  timerContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 16,
+  },
+  sliderContainer: {
+    marginBottom: 16,
+  },
+  timerButton: {
+    alignSelf: "flex-end",
+  },
+  sliderText: {
+    marginBottom: 8,
+  },
+  timerText: {
+    marginBottom: 8,
   },
   saveButton: {
     alignSelf: "center",
     marginTop: 16,
-  },
-  slider: {
-    flex: 1,
-    marginLeft: 16,
-    marginRight: 8,
-  },
-
-  sliderValue: {
-    minWidth: 50,
-    textAlign: "center",
   },
 });
 

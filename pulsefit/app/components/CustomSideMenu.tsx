@@ -14,10 +14,7 @@ const CustomSidebarMenu = (props) => {
       </View>
       <DrawerContentScrollView {...props}>
         <DrawerItemList {...props} />
-        <DrawerItem
-          label="Visit Us"
-          onPress={() => Linking.openURL('https://www.nicesnippets.com/')}
-        />
+        
         <DrawerItem
           label="Sign out"
           onPress={logOut}
