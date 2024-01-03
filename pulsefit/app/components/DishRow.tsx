@@ -1,6 +1,5 @@
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import React, { useState } from "react";
-import { urlFor } from "../../ClientSanity";
 import { MinusCircleIcon, PlusCircleIcon } from "react-native-heroicons/solid";
 import {useDispatch, useSelector} from "react-redux";
 import { addToBasket, removeFromBasket, selectBasketItemsWithId } from "../../features/basketSlice";

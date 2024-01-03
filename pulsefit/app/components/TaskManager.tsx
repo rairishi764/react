@@ -2,7 +2,6 @@ import React, {useCallback} from 'react';
 import {View, StyleSheet, Switch, Text} from 'react-native';
 
 import {Task} from '../models/Task';
-import {IntroText} from './IntroText';
 import {AddTaskForm} from './AddTaskForm';
 import TaskList from './TaskList';
 
