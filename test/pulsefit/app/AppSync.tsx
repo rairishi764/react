@@ -1,0 +1,55 @@
+// AppSync.tsx
+
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { useAuth, useUser } from '@realm/react';
+import { Pressable, StyleSheet, Text } from 'react-native';
+import CustomSidebarMenu from './components/CustomSideMenu';
+import Progress from './components/screens/Progress';
+import { buttonStyles } from './styles/button';
+import { shadows } from './styles/shadows';
+import colors from './styles/colors';
+import CardioLogger from './components/screens/CardioScreen';
+import WeightliftingLogger from './components/screens/WeightsScreen';
+import ProgressScreen from './components/screens/ProgressScreen';
+import Home from './components/screens/Home';
+const Drawer = createDrawerNavigator();
+
+export const AppSync: React.FC = () => {
+  const { logOut } = useAuth();
+  const user = useUser();
+
+  return (
+    <NavigationContainer>
+      <Drawer.Navigator
+        drawerContent={(props) => <CustomSidebarMenu {...props} />}
+      >
+        <Drawer.Screen name="Home">
+          {() => (
+            <Home/>
+          )}
+        </Drawer.Screen>
+        <Drawer.Screen name="Progress" component={ProgressScreen} />
+        <Drawer.Screen name="Cardiovascular" component={CardioLogger} />
+        <Drawer.Screen name="Weight" component={WeightliftingLogger} />
+        
+        </Drawer.Navigator>
+    </NavigationContainer>
+  );
+};
+
+const styles = StyleSheet.create({
+  authButton: {
+    ...buttonStyles.button,
+    ...shadows,
+    backgroundColor: colors.purpleDark,
+    padding: 16,
+    marginBottom: 16,
+  },
+  authButtonText: {
+    ...buttonStyles.text,
+  },
+});
+
+export default AppSync;
